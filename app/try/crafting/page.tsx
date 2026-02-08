@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getManifestationData } from "@/lib/manifestation-storage";
+import { getManifestationData, saveGeneratedNote } from "@/lib/manifestation-storage";
+import { generateManifestationNote } from "@/lib/generate-note";
 import { Loader2, Check } from "lucide-react";
 import Image from "next/image";
 
@@ -10,23 +11,73 @@ export default function CraftingPage() {
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [stage, setStage] = useState(1);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const data = getManifestationData();
     setFirstName(data.name || "you");
 
-    const timer1 = setTimeout(() => setStage(2), 10000);
-    const timer2 = setTimeout(() => setStage(3), 20000);
-    const timer3 = setTimeout(() => {
-      router.push("/try/note");
-    }, 30000);
+    // Start the generation process
+    async function generateNote() {
+      try {
+        // Stage 1: Creating message
+        setStage(1);
+        
+        // Call the Edge Function
+        const result = await generateManifestationNote({
+          name: data.name || "",
+          pronouns: data.pronouns || "",
+          goal: data.goal || "",
+          details: data.details || "",
+        });
 
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-    };
+        if (!result.success) {
+          throw new Error(result.error || "Failed to generate note");
+        }
+
+        // Stage 2: Affirmations
+        setStage(2);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Stage 3: Vibrations
+        setStage(3);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Save the generated note
+        saveGeneratedNote(result.message, result.imageUrl);
+
+        // Navigate to note page
+        router.push("/try/note");
+      } catch (err) {
+        console.error("Error generating note:", err);
+        setError(err instanceof Error ? err.message : "Something went wrong");
+      }
+    }
+
+    generateNote();
   }, [router]);
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#E5DDD5] px-4">
+        <div className="max-w-2xl w-full text-center">
+          <h1 className="text-3xl font-medium mb-4" style={{ color: "#3D3331" }}>
+            Oops, something went wrong
+          </h1>
+          <p className="text-lg mb-8" style={{ color: "#3D3331" }}>
+            {error}
+          </p>
+          <button
+            onClick={() => router.push("/try/details")}
+            className="rounded-full px-8 py-3 text-white font-medium hover:opacity-90"
+            style={{ backgroundColor: "#3D3331" }}
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-[#E5DDD5] px-4 pt-24">
