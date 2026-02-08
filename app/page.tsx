@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
@@ -24,13 +25,14 @@ export default function Home() {
               </p>
               <div className="lg:hidden flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center mb-8">
-                  <button
+                  <Link
+                    href="/try/name"
                     className="rounded-full px-8 py-3 text-white font-medium text-base flex items-center gap-2 hover:opacity-90 transition-opacity min-w-[260px] justify-center font-[family-name:var(--font-poppins)]"
                     style={{ backgroundColor: '#3D3331' }}
                   >
                     Try it yourself
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                   <p
                     className="text-xs mt-3 text-center"
                     style={{ color: '#3D3331' }}
@@ -52,13 +54,14 @@ export default function Home() {
               </div>
               <div className="hidden lg:flex lg:justify-start">
                 <div className="flex flex-col items-center">
-                  <button
+                  <Link
+                    href="/try/name"
                     className="rounded-full px-12 py-4 text-white font-medium text-lg flex items-center gap-3 hover:opacity-90 transition-opacity font-[family-name:var(--font-poppins)]"
                     style={{ backgroundColor: '#3D3331' }}
                   >
                     Try it yourself
                     <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </Link>
                   <p
                     className="text-sm mt-4 text-center"
                     style={{ color: '#3D3331' }}
