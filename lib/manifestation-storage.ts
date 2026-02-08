@@ -1,8 +1,10 @@
 export interface ManifestationData {
-  name: string;
-  pronouns: 'she/her' | 'he/him' | 'they/them' | 'name';
-  goal: string;
-  details: string;
+  name?: string;
+  pronouns?: string;
+  goal?: string;
+  details?: string;
+  generatedMessage?: string;  // Add this
+  generatedImageUrl?: string; // Add this
 }
 
 const STORAGE_KEY = 'manifestation_data';
@@ -34,3 +36,10 @@ export const clearManifestationData = (): void => {
     console.error('Error clearing manifestation data:', error);
   }
 };
+
+export function saveGeneratedNote(message: string, imageUrl: string) {
+  const data = getManifestationData();
+  data.generatedMessage = message;
+  data.generatedImageUrl = imageUrl;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
