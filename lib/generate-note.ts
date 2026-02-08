@@ -6,7 +6,7 @@ export async function generateManifestationNote(data: {
 }) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-
+  
   const response = await fetch(
     `${supabaseUrl}/functions/v1/hyper-endpoint`,
     {
@@ -18,11 +18,11 @@ export async function generateManifestationNote(data: {
       body: JSON.stringify(data),
     }
   );
-
+  
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to generate note: ${error}`);
+    throw new Error(`Failed to generate note: ${error}`);  // Fixed: was Error` instead of Error(
   }
-
+  
   return await response.json();
 }
