@@ -13,7 +13,7 @@ export default function PronounsPage() {
   useEffect(() => {
     const data = getManifestationData();
     if (data.pronouns) {
-      setSelectedPronouns(data.pronouns);
+      setSelectedPronouns(data.pronouns as PronounOption);
     }
   }, []);
 

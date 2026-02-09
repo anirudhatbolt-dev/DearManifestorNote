@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getManifestationData } from "@/lib/manifestation-storage";
 import Image from "next/image";
 
-export default function NotePage() {
+export default function NewNotePage() {
   const router = useRouter();
   const [data, setData] = useState({
     name: "",
@@ -15,7 +15,7 @@ export default function NotePage() {
 
   useEffect(() => {
     const manifestationData = getManifestationData();
-    
+
     if (!manifestationData.generatedImageUrl) {
       // If no note generated, redirect back
       router.push("/try/name");
