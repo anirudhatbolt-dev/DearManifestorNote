@@ -28,7 +28,7 @@ export default function AskForMorePage() {
   const handleNext = () => {
     if (more.trim()) {
       saveManifestationData({ More: more.trim() });
-      router.push("/try/craftingAgain");
+      router.push("/daily");
     }
   };
 
