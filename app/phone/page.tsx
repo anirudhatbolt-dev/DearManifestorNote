@@ -4,12 +4,24 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { saveManifestationData, getManifestationData } from "@/lib/manifestation-storage";
 import { createUser, createSubscription } from "@/lib/supabase-client";
-import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
+
+const countryCodes = [
+  { code: "+1", country: "US/CA" },
+  { code: "+44", country: "UK" },
+  { code: "+61", country: "AU" },
+  { code: "+91", country: "IN" },
+  { code: "+49", country: "DE" },
+  { code: "+33", country: "FR" },
+  { code: "+81", country: "JP" },
+  { code: "+86", country: "CN" },
+  { code: "+52", country: "MX" },
+  { code: "+55", country: "BR" },
+];
 
 export default function PhonePage() {
   const router = useRouter();
-  const [phone, setPhone] = useState("+1");
+  const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+1");
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,7 +32,27 @@ export default function PhonePage() {
     if (data.phone) {
       setPhone(data.phone);
     }
+    if (data.country_code) {
+      setCountryCode(data.country_code);
+    }
   }, []);
+
+  const formatPhoneNumber = (value: string): string => {
+    const numbers = value.replace(/\D/g, "");
+
+    if (numbers.length <= 3) {
+      return numbers;
+    } else if (numbers.length <= 6) {
+      return `(${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
+    } else {
+      return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6, 10)}`;
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhone(formatted);
+  };
 
   const validatePhone = (phone: string): boolean => {
     const numbers = phone.replace(/\D/g, "");
@@ -39,9 +71,6 @@ export default function PhonePage() {
 
     try {
       const data = getManifestationData();
-
-      const countryCodeMatch = phone.match(/^\+\d+/);
-      const countryCode = countryCodeMatch ? countryCodeMatch[0] : "+1";
 
       saveManifestationData({
         phone: phone,
@@ -70,6 +99,12 @@ export default function PhonePage() {
       setError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && validatePhone(phone)) {
+      handleSubmit();
     }
   };
 
@@ -103,63 +138,39 @@ export default function PhonePage() {
         </p>
 
         <div className="max-w-md mx-auto">
-          <style jsx global>{`
-            .react-international-phone-input-container {
-              width: 100%;
-            }
-            .react-international-phone-input-container .react-international-phone-input {
-              width: 100%;
-              padding: 16px 24px;
-              font-size: 18px;
-              border-radius: 9999px;
-              border: 2px solid ${validatePhone(phone) ? "#3D3331" : "#D4C4B8"};
-              background-color: #F5F0EB;
-              color: #3D3331;
-              outline: none;
-              transition: all 0.2s;
-            }
-            .react-international-phone-input-container .react-international-phone-input:focus {
-              border-color: #3D3331;
-            }
-            .react-international-phone-country-selector-button {
-              padding: 16px 12px;
-              border-radius: 9999px 0 0 9999px;
-              border: 2px solid #D4C4B8;
-              border-right: none;
-              background-color: #F5F0EB;
-              color: #3D3331;
-              outline: none;
-              transition: all 0.2s;
-            }
-            .react-international-phone-country-selector-button:hover {
-              background-color: #EDE5DD;
-            }
-            .react-international-phone-country-selector-dropdown {
-              border-radius: 16px;
-              border: 2px solid #D4C4B8;
-              background-color: #F5F0EB;
-              box-shadow: 0 8px 16px rgba(61, 51, 49, 0.1);
-              max-height: 300px;
-            }
-            .react-international-phone-country-selector-dropdown__list-item {
-              color: #3D3331;
-              padding: 12px 16px;
-            }
-            .react-international-phone-country-selector-dropdown__list-item:hover {
-              background-color: #EDE5DD;
-            }
-            .react-international-phone-country-selector-dropdown__list-item--selected {
-              background-color: #3D3331;
-              color: white;
-            }
-          `}</style>
+          <div className="flex gap-3">
+            <select
+              value={countryCode}
+              onChange={(e) => setCountryCode(e.target.value)}
+              className="px-4 py-4 text-lg rounded-full border-2 outline-none transition-all"
+              style={{
+                color: "#3D3331",
+                backgroundColor: "#F5F0EB",
+                borderColor: "#D4C4B8",
+                minWidth: "120px",
+              }}
+            >
+              {countryCodes.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.code} {country.country}
+                </option>
+              ))}
+            </select>
 
-          <PhoneInput
-            defaultCountry="us"
-            value={phone}
-            onChange={(phone) => setPhone(phone)}
-            inputClassName="phone-input-custom"
-          />
+            <input
+              type="tel"
+              value={phone}
+              onChange={handlePhoneChange}
+              onKeyPress={handleKeyPress}
+              placeholder="(555) 000-0000"
+              className="flex-1 px-6 py-4 text-lg rounded-full border-2 outline-none transition-all"
+              style={{
+                color: "#3D3331",
+                backgroundColor: "#F5F0EB",
+                borderColor: validatePhone(phone) ? "#3D3331" : "#D4C4B8",
+              }}
+            />
+          </div>
 
           {error && (
             <p className="mt-4 text-red-600 text-sm">{error}</p>
