@@ -51,21 +51,14 @@ export default function AskForMorePage() {
     <div className="min-h-screen flex items-center justify-center bg-[#E5DDD5] px-4 py-12">
       <div className="max-w-2xl w-full text-center">
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
-          style={{ color: "#3D3331" }}
-        >
-          The universe wants to know more, {name}
-        </h1>
-
-        <p
-          className="text-xl md:text-2xl mb-8"
+          className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8"
           style={{ color: "#3D3331" }}
         >
           Ask for more, {name}. The Universe is very giving.
-        </p>
+        </h1>
 
         <p
-          className="text-lg md:text-xl mb-6"
+          className="text-xl md:text-2xl mb-6"
           style={{ color: "#3D3331" }}
         >
           What more are you manifesting?
