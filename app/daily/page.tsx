@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function DailyPage() {
+  const router = useRouter();
+
   const handleSendNotes = () => {
-    // TODO: Implement send notes functionality
-    console.log("Send 11:11 notes");
+    router.push("/email");
   };
 
   return (
@@ -15,7 +17,9 @@ export default function DailyPage() {
           className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8"
           style={{ color: "#3D3331" }}
         >
-          Every morning at <span className="font-bold">11:11 AM</span>
+          Every morning at
+          <br />
+          <span className="font-bold">11:11 AM</span>
         </h1>
 
         <p
