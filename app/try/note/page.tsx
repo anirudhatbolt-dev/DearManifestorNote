@@ -64,14 +64,14 @@ export default function NotePage() {
 
         <button
           onClick={handleCreateAnother}
-          className="rounded-full px-12 py-4 text-white font-medium text-lg hover:opacity-90 transition-all mb-4"
+          className="rounded-full px-12 py-4 text-white font-medium text-lg hover:opacity-90 transition-all"
           style={{ backgroundColor: "#3D3331" }}
         >
-          Create another one
+          Show me another
         </button>
 
-        <p className="text-sm opacity-60 mt-8" style={{ color: "#3D3331" }}>
-          This is just a preview. Sign up to get notes like this delivered daily.
+        <p className="text-sm mt-3" style={{ color: "#3D3331" }}>
+          Each one shows you a different way to make this your reality
         </p>
       </div>
     </div>
