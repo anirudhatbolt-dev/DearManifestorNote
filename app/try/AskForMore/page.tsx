@@ -54,7 +54,7 @@ export default function AskForMorePage() {
           className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8"
           style={{ color: "#3D3331" }}
         >
-          Ask for more, {name}. The Universe is very giving.
+          Ask for more, {name}. <br />The Universe is very giving.
         </h1>
 
         <p
