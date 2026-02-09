@@ -4,8 +4,9 @@ export interface ManifestationData {
   goal?: string;
   details?: string;
   additionalManifestation?: string;
-  generatedMessage?: string;  // Add this
-  generatedImageUrl?: string; // Add this
+  More?: string;
+  generatedMessage?: string;
+  generatedImageUrl?: string;
 }
 
 const STORAGE_KEY = 'manifestation_data';

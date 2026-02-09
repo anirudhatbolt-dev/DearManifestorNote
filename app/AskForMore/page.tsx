@@ -7,7 +7,7 @@ import { saveManifestationData, getManifestationData } from "@/lib/manifestation
 export default function AskForMorePage() {
   const router = useRouter();
   const [name, setName] = useState("");
-  const [additionalManifestation, setAdditionalManifestation] = useState("");
+  const [more, setMore] = useState("");
   const maxLength = 200;
 
   useEffect(() => {
@@ -20,14 +20,14 @@ export default function AskForMorePage() {
 
     setName(data.name);
 
-    if (data.additionalManifestation) {
-      setAdditionalManifestation(data.additionalManifestation);
+    if (data.More) {
+      setMore(data.More);
     }
   }, [router]);
 
   const handleNext = () => {
-    if (additionalManifestation.trim()) {
-      saveManifestationData({ additionalManifestation: additionalManifestation.trim() });
+    if (more.trim()) {
+      saveManifestationData({ More: more.trim() });
       router.push("/try/craftingAgain");
     }
   };
@@ -35,7 +35,7 @@ export default function AskForMorePage() {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     if (value.length <= maxLength) {
-      setAdditionalManifestation(value);
+      setMore(value);
     }
   };
 
@@ -69,10 +69,10 @@ export default function AskForMorePage() {
             className="text-right mb-2 text-sm font-medium"
             style={{ color: "#3D3331" }}
           >
-            {additionalManifestation.length}/{maxLength}
+            {more.length}/{maxLength}
           </div>
           <textarea
-            value={additionalManifestation}
+            value={more}
             onChange={handleChange}
             placeholder="more money flowing in, my soulmate, that promotion, inner peace..."
             className="w-full px-6 py-4 text-lg rounded-3xl border-2 outline-none transition-all resize-none"
@@ -87,7 +87,7 @@ export default function AskForMorePage() {
 
         <button
           onClick={handleNext}
-          disabled={!additionalManifestation.trim()}
+          disabled={!more.trim()}
           className="mt-12 rounded-full px-12 py-4 text-white font-medium text-lg hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
           style={{ backgroundColor: "#3D3331" }}
         >
