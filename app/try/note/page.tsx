@@ -67,11 +67,11 @@ export default function NotePage() {
           className="rounded-full px-12 py-4 text-white font-medium text-lg hover:opacity-90 transition-all"
           style={{ backgroundColor: "#3D3331" }}
         >
-          Show me another
+          Show me another path
         </button>
 
         <p className="text-sm mt-3" style={{ color: "#3D3331" }}>
-          Each one shows you a different way to make this your reality
+          Every note attracts it in a different way
         </p>
       </div>
     </div>
