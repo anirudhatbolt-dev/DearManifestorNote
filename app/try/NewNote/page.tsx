@@ -30,7 +30,7 @@ export default function NewNotePage() {
   }, [router]);
 
   const handleCreateAnother = () => {
-    router.push("/try/craftingAgain");
+    router.push("/try/AskForMore");
   };
 
   if (!data.imageUrl) {

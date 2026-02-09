@@ -3,6 +3,7 @@ export interface ManifestationData {
   pronouns?: string;
   goal?: string;
   details?: string;
+  additionalManifestation?: string;
   generatedMessage?: string;  // Add this
   generatedImageUrl?: string; // Add this
 }
