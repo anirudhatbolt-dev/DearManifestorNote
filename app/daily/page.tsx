@@ -12,15 +12,20 @@ export default function DailyPage() {
     <div className="min-h-screen flex items-center justify-center bg-[#E5DDD5] px-4 py-12">
       <div className="max-w-3xl w-full text-center">
         <h1
-          className="text-3xl md:text-4xl lg:text-5xl font-medium mb-12 leading-relaxed"
+          className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8"
           style={{ color: "#3D3331" }}
         >
           Every morning at <span className="font-bold">11:11 AM</span>
-          <br />
+        </h1>
+
+        <p
+          className="text-lg md:text-xl lg:text-2xl mb-12 leading-relaxed"
+          style={{ color: "#3D3331" }}
+        >
           The universe's number. Your daily reminder.
           <br />
           Delivered exactly when manifestation is strongest
-        </h1>
+        </p>
 
         <button
           onClick={handleSendNotes}
