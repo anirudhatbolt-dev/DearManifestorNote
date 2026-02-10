@@ -59,6 +59,12 @@ export default function PhonePage() {
     return numbers.length >= 10;
   };
 
+  // Convert to E.164 format for Twilio
+  const getE164Phone = (): string => {
+    const numbers = phone.replace(/\D/g, "");
+    return `${countryCode}${numbers}`;
+  };
+
   const handleSubmit = async () => {
     setError("");
 
@@ -71,9 +77,10 @@ export default function PhonePage() {
 
     try {
       const data = getManifestationData();
+      const e164Phone = getE164Phone(); // E.164 format: +919821331964
 
       saveManifestationData({
-        phone: phone,
+        phone: e164Phone, // Store in E.164 format
         country_code: countryCode
       });
 
@@ -83,7 +90,7 @@ export default function PhonePage() {
         goal: data.goal || "",
         details: data.details || "",
         email: data.email || "",
-        phone: phone,
+        phone: e164Phone, // Send E.164 to database
         country_code: countryCode,
       };
 
