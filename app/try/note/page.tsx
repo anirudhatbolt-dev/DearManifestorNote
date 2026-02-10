@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getManifestationData } from "@/lib/manifestation-storage";
+import { getManifestationData, saveFirstNote } from "@/lib/manifestation-storage";
 import Image from "next/image";
 
 export default function NotePage() {
@@ -27,6 +27,12 @@ export default function NotePage() {
       imageUrl: manifestationData.generatedImageUrl || "",
       message: manifestationData.generatedMessage || "",
     });
+
+    // Save as first note with date
+    saveFirstNote(
+      manifestationData.generatedMessage || "",
+      manifestationData.generatedImageUrl || ""
+    );
   }, [router]);
 
   const handleCreateAnother = () => {
