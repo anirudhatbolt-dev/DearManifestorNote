@@ -22,7 +22,12 @@ export default function SignUpPage() {
       try {
         const data = JSON.parse(manifestationData);
         if (data.name) setUserName(data.name);
-        if (data.firstNoteUrl) setNoteImageUrl(data.firstNoteUrl);
+        // Check for both firstNoteUrl and generatedImageUrl
+        if (data.firstNoteUrl) {
+          setNoteImageUrl(data.firstNoteUrl);
+        } else if (data.generatedImageUrl) {
+          setNoteImageUrl(data.generatedImageUrl);
+        }
       } catch (e) {
         console.error("Error parsing manifestation data:", e);
       }
