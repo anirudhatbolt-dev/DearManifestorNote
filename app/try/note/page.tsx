@@ -73,7 +73,7 @@ export default function NotePage() {
           className="rounded-full px-12 py-4 text-white font-medium text-lg hover:opacity-90 transition-all"
           style={{ backgroundColor: "#3D3331" }}
         >
-          Show me another path
+          Show me another
         </button>
 
         <p className="text-sm mt-3" style={{ color: "#3D3331" }}>
