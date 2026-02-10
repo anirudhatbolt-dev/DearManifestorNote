@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { saveManifestationData, getManifestationData } from "@/lib/manifestation-storage";
-import { createUser, createSubscription } from "@/lib/supabase-client";
 
 const countryCodes = [
   { code: "+1", country: "US/CA" },
@@ -76,7 +75,6 @@ export default function PhonePage() {
     setIsLoading(true);
 
     try {
-      const data = getManifestationData();
       const e164Phone = getE164Phone(); // E.164 format: +919821331964
 
       saveManifestationData({
@@ -84,25 +82,9 @@ export default function PhonePage() {
         country_code: countryCode
       });
 
-      const userData = {
-        name: data.name || "",
-        pronouns: data.pronouns || "they/them",
-        goal: data.goal || "",
-        details: data.details || "",
-        email: data.email || "",
-        phone: e164Phone, // Send E.164 to database
-        country_code: countryCode,
-      };
-
-      const user = await createUser(userData);
-
-      if (user && user.id) {
-        await createSubscription(user.id, true);
-      }
-
-      router.push("/daily");
+      router.push("/auth/signup");
     } catch (err) {
-      console.error("Error saving user data:", err);
+      console.error("Error saving phone data:", err);
       setError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
