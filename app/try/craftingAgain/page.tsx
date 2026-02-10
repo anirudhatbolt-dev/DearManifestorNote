@@ -29,7 +29,6 @@ async function generateNote() {
       pronouns: data.pronouns || "",
       goal: data.goal || "",
       details: data.details || "",
-      templateId: 2, // <--- ADD THIS
     });
 
     if (!result.success) {
