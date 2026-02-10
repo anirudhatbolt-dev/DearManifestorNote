@@ -10,41 +10,57 @@ export interface ManifestationData {
   email?: string;
   phone?: string;
   country_code?: string;
+  // First note
+  firstNoteUrl?: string;
+  firstNoteMessage?: string;
+  firstNoteDate?: string;
+  // Second note
+  secondNoteUrl?: string;
+  secondNoteMessage?: string;
+  secondNoteDate?: string;
 }
 
-const STORAGE_KEY = 'manifestation_data';
+const STORAGE_KEY = "manifestation_data";
 
-export const saveManifestationData = (data: Partial<ManifestationData>): void => {
-  try {
-    const existing = getManifestationData();
-    const updated = { ...existing, ...data };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-  } catch (error) {
-    console.error('Error saving manifestation data:', error);
-  }
-};
+export function getManifestationData(): ManifestationData {
+  if (typeof window === "undefined") return {};
+  const data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : {};
+}
 
-export const getManifestationData = (): Partial<ManifestationData> => {
-  try {
-    const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : {};
-  } catch (error) {
-    console.error('Error retrieving manifestation data:', error);
-    return {};
-  }
-};
-
-export const clearManifestationData = (): void => {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch (error) {
-    console.error('Error clearing manifestation data:', error);
-  }
-};
+export function saveManifestationData(data: Partial<ManifestationData>) {
+  if (typeof window === "undefined") return;
+  const existing = getManifestationData();
+  const updated = { ...existing, ...data };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+}
 
 export function saveGeneratedNote(message: string, imageUrl: string) {
   const data = getManifestationData();
   data.generatedMessage = message;
   data.generatedImageUrl = imageUrl;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+// Save first note with timestamp
+export function saveFirstNote(message: string, imageUrl: string) {
+  const data = getManifestationData();
+  data.firstNoteUrl = imageUrl;
+  data.firstNoteMessage = message;
+  data.firstNoteDate = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+// Save second note with timestamp
+export function saveSecondNote(message: string, imageUrl: string) {
+  const data = getManifestationData();
+  data.secondNoteUrl = imageUrl;
+  data.secondNoteMessage = message;
+  data.secondNoteDate = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+export function clearManifestationData() {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STORAGE_KEY);
 }
