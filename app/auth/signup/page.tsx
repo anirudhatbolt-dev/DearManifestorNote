@@ -17,12 +17,20 @@ export default function SignUpPage() {
   const [noteImageUrl, setNoteImageUrl] = useState("");
 
   useEffect(() => {
+    // Handle OAuth redirect hash
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = hashParams.get('access_token');
+    if (accessToken) {
+      // OAuth callback - redirect to setup
+      router.push('/setup');
+      return;
+    }
+
     const manifestationData = localStorage.getItem("manifestation_data");
     if (manifestationData) {
       try {
         const data = JSON.parse(manifestationData);
         if (data.name) setUserName(data.name);
-        // Check for both firstNoteUrl and generatedImageUrl
         if (data.firstNoteUrl) {
           setNoteImageUrl(data.firstNoteUrl);
         } else if (data.generatedImageUrl) {
@@ -79,7 +87,7 @@ export default function SignUpPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/setup`,
+          redirectTo: `${window.location.origin}/auth/signup`,
         },
       });
       if (error) throw error;
@@ -99,8 +107,7 @@ export default function SignUpPage() {
               Ready to manifest daily, {userName}?
             </h1>
             <p className="text-[#3D3331]/70 text-base lg:text-lg">
-              Sign {isSignUp ? "up" : "in"} to get notes like this every morning at
-              11:11
+              Sign {isSignUp ? "up" : "in"} to get notes like this every morning at 11:11
             </p>
           </div>
 
