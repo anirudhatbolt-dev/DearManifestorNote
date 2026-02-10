@@ -17,7 +17,7 @@ export default function DailyPage() {
           className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8"
           style={{ color: "#3D3331" }}
         >
-          Get a new note every morning at
+          Get new notes every morning at
           <br />
           <span className="font-bold">11:11 AM</span>
         </h1>
