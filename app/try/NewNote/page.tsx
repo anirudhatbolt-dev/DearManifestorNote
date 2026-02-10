@@ -36,7 +36,7 @@ export default function NewNotePage() {
   }, [router]);
 
   const handleCreateAnother = () => {
-    router.push("/try/AskForMore");
+    router.push("/AskForMore");
   };
 
   if (!data.imageUrl) {
