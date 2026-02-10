@@ -12,6 +12,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Dear Manifestor',
   description: 'Get daily affirmation notes',
+  icons: {
+    icon: '/4445942.png',
+  },
 };
 
 export default function RootLayout({
