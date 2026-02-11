@@ -26,16 +26,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#E5DDD5]/80 backdrop-blur-sm border-b border-[#D4C4B8]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#E5DDD5]/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link
-            href="/"
-            className="text-xl font-semibold text-[#3D3331] hover:opacity-80 transition-opacity"
-          >
-            Dear Manifestor
-          </Link>
-
+        <div className="flex justify-end items-center h-16">
           <div className="flex items-center gap-4">
             {loading ? (
               <div className="w-10 h-10 rounded-full bg-[#D4C4B8] animate-pulse"></div>
@@ -66,7 +59,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/auth/signup"
-                className="px-6 py-2 rounded-full bg-[#3D3331] text-white font-medium hover:opacity-90 transition-opacity text-sm"
+                className="px-8 py-3 sm:px-12 sm:py-4 rounded-full bg-[#3D3331] text-white font-medium hover:opacity-90 transition-opacity text-base sm:text-lg font-[family-name:var(--font-poppins)]"
               >
                 Log In
               </Link>
