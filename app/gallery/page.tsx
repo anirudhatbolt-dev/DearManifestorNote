@@ -63,14 +63,14 @@ export default function GalleryPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#E5DDD5] flex items-center justify-center">
+      <div className="min-h-screen bg-[#E5DDD5] flex items-center justify-center pt-20">
         <Loader2 className="w-8 h-8 animate-spin text-[#3D3331]" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#E5DDD5] py-12 px-4">
+    <div className="min-h-screen bg-[#E5DDD5] pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-[#3D3331] mb-4">
