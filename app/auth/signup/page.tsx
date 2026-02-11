@@ -104,7 +104,7 @@ export default function SignUpPage() {
         <div className="w-full max-w-md space-y-8">
           <div className="text-center lg:text-left">
             <h1 className="text-3xl lg:text-4xl font-bold text-[#3D3331] mb-3">
-              Ready to make this your reality, {userName}
+              Ready to make this your reality, {userName} ?
             </h1>
             <p className="text-[#3D3331]/70 text-base lg:text-lg">
               {isSignUp ? (
