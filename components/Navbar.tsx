@@ -59,7 +59,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/auth/signup"
-                className="px-8 py-3 sm:px-12 sm:py-4 rounded-full bg-[#3D3331] text-white font-medium hover:opacity-90 transition-opacity text-base sm:text-lg font-[family-name:var(--font-poppins)]"
+                className="px-6 py-2 rounded-full bg-[#3D3331] text-white font-medium hover:opacity-90 transition-opacity text-sm font-[family-name:var(--font-poppins)]"
               >
                 Log In
               </Link>
