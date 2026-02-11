@@ -104,10 +104,17 @@ export default function SignUpPage() {
         <div className="w-full max-w-md space-y-8">
           <div className="text-center lg:text-left">
             <h1 className="text-3xl lg:text-4xl font-bold text-[#3D3331] mb-3">
-              Ready to manifest daily, {userName}?
+              Ready to make this your reality, {userName}
             </h1>
             <p className="text-[#3D3331]/70 text-base lg:text-lg">
-              Sign {isSignUp ? "up" : "in"} to get notes like this every morning at 11:11
+              {isSignUp ? (
+                <>
+                  Sign up now. Tomorrow at 11:11, your first note arrives.<br /><br />
+                  Every morning after that, the universe reminds you what's already yours ✨
+                </>
+              ) : (
+                "Welcome back! Sign in to continue your manifestation journey"
+              )}
             </p>
           </div>
 
@@ -149,7 +156,7 @@ export default function SignUpPage() {
               {loading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                `Sign ${isSignUp ? "up" : "in"} with Email`
+                isSignUp ? "Start manifesting daily" : "Sign in with Email"
               )}
             </button>
           </form>

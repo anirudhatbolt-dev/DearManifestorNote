@@ -29,7 +29,6 @@ export default function CraftingAgainPage() {
           pronouns: data.pronouns || "",
           goal: data.goal || "",
           details: data.details || "",
-          templateId: 2, // <--- THIS WAS MISSING
         });
 
         if (!result.success) {
