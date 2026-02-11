@@ -201,10 +201,10 @@ export default function SetupPage() {
           />
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-[#3D3331] mb-4">
-          Setting up things for {userName}...
+          Setting up your manifestation ritual, {userName}...
         </h1>
         <p className="text-lg text-[#3D3331]/70 mb-8">
-          Creating your manifestation ritual
+          Aligning your notes with the universe's timing
         </p>
         <Loader2 className="w-8 h-8 animate-spin text-[#3D3331] mx-auto" />
       </div>
