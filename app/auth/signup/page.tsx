@@ -109,7 +109,7 @@ export default function SignUpPage() {
             <p className="text-[#3D3331]/70 text-base lg:text-lg">
               {isSignUp ? (
                 <>
-                  Sign up now. Tomorrow at 11:11, your first note arrives.<br /><br />
+                  Sign up now. Tomorrow at 11:11, your first note arrives.<br />
                   Every morning after that, the universe reminds you what's already yours ✨
                 </>
               ) : (
