@@ -82,7 +82,7 @@ export default function AboutPage() {
                   className="text-sm sm:text-base leading-relaxed font-[family-name:var(--font-poppins)]"
                   style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.7' }}
                 >
-                  We create personalized affirmations using advanced AI
+                  We create personalized affirmations based on your manifestation goals
                 </p>
               </div>
               <div className="bg-white/50 rounded-2xl p-6 border border-[#D4C4B8]">
