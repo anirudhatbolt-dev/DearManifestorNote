@@ -3,6 +3,7 @@ export async function generateManifestationNote(data: {
   pronouns: string;
   goal: string;
   details: string;
+  templateId?: number;
 }) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;

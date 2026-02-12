@@ -61,17 +61,31 @@ export default function SignUpPage() {
 
     try {
       if (isSignUp) {
-        const { error: signUpError } = await supabase.auth.signUp({
+        const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/setup`,
+          },
         });
         if (signUpError) throw signUpError;
+
+        if (data?.user && data?.session) {
+          router.push("/setup");
+        } else if (data?.user && !data?.session) {
+          setError("Please check your email to confirm your account before signing in.");
+          setLoading(false);
+        }
       } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+        const { data, error: signInError } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (signInError) throw signInError;
+
+        if (data?.session) {
+          router.push("/setup");
+        }
       }
     } catch (err: any) {
       setError(err.message || "An error occurred during authentication");
