@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Crimson_Pro, Poppins } from 'next/font/google';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const crimsonPro = Crimson_Pro({ subsets: ['latin'] });
 const poppins = Poppins({
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`${crimsonPro.className} ${poppins.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
