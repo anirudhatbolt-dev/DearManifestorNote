@@ -10,6 +10,8 @@ export interface ManifestationData {
   email?: string;
   phone?: string;
   country_code?: string;
+  timezone?: string;
+  utc_offset?: number;
   // First note
   firstNoteUrl?: string;
   firstNoteMessage?: string;

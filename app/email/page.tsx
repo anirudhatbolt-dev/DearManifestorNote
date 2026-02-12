@@ -31,7 +31,7 @@ export default function EmailPage() {
   const handleNext = () => {
     if (isValid && email.trim()) {
       saveManifestationData({ email: email.trim() });
-      router.push("/phone");
+      router.push("/timezone");
     }
   };
 
