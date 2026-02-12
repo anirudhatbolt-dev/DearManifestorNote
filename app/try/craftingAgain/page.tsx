@@ -23,13 +23,14 @@ export default function CraftingAgainPage() {
         // Stage 1: Writing message
         setStage(1);
 
-        // Call the Edge Function with Template 2
-        const result = await generateManifestationNote({
-          name: data.name || "",
-          pronouns: data.pronouns || "",
-          goal: data.goal || "",
-          details: data.details || "",
-        });
+// Call the Edge Function with Template 2
+const result = await generateManifestationNote({
+  name: data.name || "",
+  pronouns: data.pronouns || "",
+  goal: data.goal || "",
+  details: data.details || "",
+  templateId: 2, // <--- ADD THIS LINE
+});
 
         if (!result.success) {
           throw new Error(result.error || "Failed to generate note");
