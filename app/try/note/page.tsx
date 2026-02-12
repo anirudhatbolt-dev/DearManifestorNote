@@ -48,7 +48,7 @@ export default function NotePage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#E5DDD5] px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center bg-[#E5DDD5] px-4 py-12 md:pt-32 lg:pt-36">
       <div className="max-w-3xl w-full text-center">
         <h1
           className="text-4xl md:text-5xl lg:text-6xl font-medium mb-12"
