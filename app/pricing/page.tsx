@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Check, Mail, Calendar, Clock, Shield, Sparkles } from 'lucide-react';
+import { Check, Mail, Shield, Sparkles } from 'lucide-react';
 
 export default function PricingPage() {
   return (
@@ -86,7 +86,7 @@ export default function PricingPage() {
 
           <div className="text-center">
             <Link
-              href="/auth/signup"
+              href="/try/name"
               className="inline-flex items-center gap-2 rounded-full px-10 py-4 text-white font-medium text-lg hover:opacity-90 transition-opacity"
               style={{ backgroundColor: '#3D3331' }}
             >
@@ -94,51 +94,6 @@ export default function PricingPage() {
               Get Started
             </Link>
           </div>
-        </div>
-
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl shadow-lg p-8 sm:p-12 mb-12 border-2 border-amber-200">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 mb-4">
-              <Sparkles className="w-8 h-8 text-amber-600" />
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl font-semibold mb-3"
-              style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
-            >
-              Founding Member Offer
-            </h2>
-            <p
-              className="text-lg font-medium text-amber-900 mb-2"
-            >
-              Limited to 50 Spots
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            <div className="text-center p-6 bg-white rounded-2xl border border-amber-200">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-amber-600" />
-              <p className="text-sm font-semibold text-amber-900 mb-1">Launch Date</p>
-              <p className="text-lg font-bold" style={{ color: '#3D3331' }}>February 20, 2026</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-2xl border border-amber-200">
-              <Clock className="w-8 h-8 mx-auto mb-3 text-amber-600" />
-              <p className="text-sm font-semibold text-amber-900 mb-1">Free Trial</p>
-              <p className="text-lg font-bold" style={{ color: '#3D3331' }}>10 Days</p>
-              <p className="text-xs text-amber-800 mt-1">Feb 20 - Mar 1</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-2xl border border-amber-200">
-              <Shield className="w-8 h-8 mx-auto mb-3 text-amber-600" />
-              <p className="text-sm font-semibold text-amber-900 mb-1">First Charge</p>
-              <p className="text-lg font-bold" style={{ color: '#3D3331' }}>March 1, 2026</p>
-            </div>
-          </div>
-
-          <p
-            className="text-center text-base"
-            style={{ color: '#3D3331' }}
-          >
-            Lock in your spot now and start your manifestation journey with our founding member community.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
