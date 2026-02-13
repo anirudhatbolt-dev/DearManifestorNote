@@ -64,7 +64,7 @@ export default function SubscribePage() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         subscription_id: data.subscriptionId,
         name: "Dear Manifestor",
-        description: "The February 22nd Wave - Daily Manifestation Notes",
+        description: "Daily Manifestation Notes",
         handler: async function (response: any) {
           try {
             const verifyResponse = await fetch("/api/verify-payment", {
@@ -127,7 +127,7 @@ export default function SubscribePage() {
             className="text-5xl sm:text-6xl md:text-7xl font-medium mb-8"
             style={{ color: "#3D3331", fontFamily: "Crimson Pro" }}
           >
-            The February 22nd Wave
+            Become a Daily Manifestor
           </h1>
           <div className="space-y-6 max-w-2xl mx-auto">
             <p
@@ -152,17 +152,17 @@ export default function SubscribePage() {
               className="text-xl sm:text-2xl font-semibold mt-8"
               style={{ color: "#3D3331" }}
             >
-              The next wave begins February 22nd.
+              The next wave of manifestors begins February 22nd.
             </p>
           </div>
         </div>
 
         <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 mb-12 border-2 border-[#D4C4B8]">
           <h2
-            className="text-3xl sm:text-4xl font-semibold mb-8 text-center"
+            className="text-3xl sm:text-4xl font-semibold mb-10 text-center"
             style={{ color: "#3D3331", fontFamily: "Crimson Pro" }}
           >
-            What You Get
+            What Daily Manifestors Get
           </h2>
 
           <div className="space-y-8 mb-10">
@@ -171,13 +171,28 @@ export default function SubscribePage() {
                 className="text-xl sm:text-2xl font-semibold mb-3"
                 style={{ color: "#3D3331" }}
               >
-                Daily manifestation notes at 11:11 AM
+                Your personalized note at 11:11 AM
               </h3>
               <p
                 className="text-base sm:text-lg"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
-                Personalized to YOUR goals. YOUR journey. YOUR reality.
+                Every single day. Aligned to YOUR goals. YOUR journey. YOUR reality.
+              </p>
+            </div>
+
+            <div className="text-center pb-6 border-b-2 border-[#D4C4B8]">
+              <h3
+                className="text-xl sm:text-2xl font-semibold mb-3"
+                style={{ color: "#3D3331" }}
+              >
+                You become part of the 11:11 ritual
+              </h3>
+              <p
+                className="text-base sm:text-lg"
+                style={{ color: "#3D3331", opacity: 0.8 }}
+              >
+                Join thousands who start their mornings with the universe's most powerful reminder.
               </p>
             </div>
 
@@ -192,11 +207,11 @@ export default function SubscribePage() {
                 className="text-base sm:text-lg"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
-                11:11 AM sharp. The universe doesn't wait.
+                11:11 AM sharp. The universe doesn't wait for anyone.
               </p>
             </div>
 
-            <div className="text-center">
+            <div className="text-center pt-2">
               <div className="inline-flex items-baseline gap-2 mb-3">
                 <span
                   className="text-6xl sm:text-7xl font-bold"
@@ -215,7 +230,7 @@ export default function SubscribePage() {
                 className="text-base sm:text-lg"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
-                The universe's number. Your daily ritual. Cancel anytime.
+                The universe's number. Your daily manifestation ritual. Cancel anytime.
               </p>
             </div>
           </div>
@@ -224,7 +239,7 @@ export default function SubscribePage() {
             <button
               onClick={handleSubscribe}
               disabled={loading}
-              className="inline-flex items-center gap-3 rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-3 rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
               style={{ backgroundColor: "#3D3331" }}
             >
               {loading ? (
@@ -235,7 +250,7 @@ export default function SubscribePage() {
               ) : (
                 <>
                   <Sparkles className="w-5 h-5" />
-                  Join the February 22nd Wave
+                  Become a Daily Manifestor
                 </>
               )}
             </button>
@@ -244,6 +259,12 @@ export default function SubscribePage() {
               style={{ color: "#3D3331", opacity: 0.7 }}
             >
               Billing starts February 22. Your manifestation ritual starts the same day.
+            </p>
+            <p
+              className="text-sm mt-2 italic"
+              style={{ color: "#3D3331", opacity: 0.6 }}
+            >
+              (We've already personalized 2 notes for you—now let us remind you every morning what you're calling in.)
             </p>
           </div>
         </div>
@@ -254,7 +275,7 @@ export default function SubscribePage() {
             style={{ color: "#3D3331", opacity: 0.8 }}
           >
             Questions? Email us at{" "}
-            <a
+            
               href="mailto:mail@dearmanifestor.com"
               className="underline hover:opacity-70 transition-opacity"
             >
