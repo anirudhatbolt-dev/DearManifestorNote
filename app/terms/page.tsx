@@ -38,7 +38,7 @@ export default function TermsAndConditionsPage() {
               className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
               style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
             >
-              By accessing or using Dear Manifestor ("the Service"), you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not use our Service.
+By accessing or using Dear Manifestor ("the Service"), you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not use our Service. Dear Manifestor is operated by Kadian Ventures Pvt. Ltd.
             </p>
           </section>
 
