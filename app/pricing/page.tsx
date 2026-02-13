@@ -1,149 +1,184 @@
-"use client";
-
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+import { Check, Mail, Shield, Sparkles } from 'lucide-react';
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background: 'linear-gradient(135deg, #1a1625 0%, #2d1b3d 25%, #3d2749 50%, #2d1b3d 75%, #1a1625 100%)'
-        }}
-      />
-
-      <div className="absolute inset-0 -z-10 opacity-20">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-200 rounded-full animate-pulse" />
-        <div className="absolute top-40 right-20 w-1 h-1 bg-purple-200 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute top-60 left-1/4 w-1.5 h-1.5 bg-pink-200 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-blue-200 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-yellow-200 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
+    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#E5DDD5' }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200"
-            style={{ fontFamily: 'Crimson Pro' }}
+            className="text-4xl sm:text-5xl md:text-6xl font-medium mb-6"
+            style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
           >
-            The February 22nd Wave
+            Pricing
           </h1>
-
-          <p className="text-xl sm:text-2xl text-purple-100 mb-6 leading-relaxed font-light max-w-xl mx-auto">
-            Right now, thousands are waking up to their manifestation note at{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10 font-semibold text-yellow-200">11:11</span>
-              <span className="absolute inset-0 blur-lg bg-yellow-200 opacity-50 animate-pulse" />
-            </span>
-            .
+          <p
+            className="text-xl sm:text-2xl mb-2"
+            style={{ color: '#3D3331' }}
+          >
+            Simple, Transparent, Manifestation-Aligned
           </p>
-
-          <p className="text-lg sm:text-xl text-purple-100/90 mb-4 leading-relaxed max-w-xl mx-auto">
-            You've felt what one note can do.
-          </p>
-
-          <p className="text-lg sm:text-xl text-purple-100/90 mb-8 leading-relaxed max-w-xl mx-auto">
-            Imagine that clarity. Every single morning. At the universe's most powerful moment.
-          </p>
-
-          <div className="inline-block relative">
-            <p className="text-2xl sm:text-3xl font-semibold text-yellow-200 mb-2">
-              The next wave begins February 22nd.
-            </p>
-            <div className="absolute inset-0 blur-2xl bg-yellow-200 opacity-30" />
-          </div>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent mb-12" />
-
-        <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8 border border-purple-400/30 shadow-2xl">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-10 text-purple-100" style={{ fontFamily: 'Crimson Pro' }}>
-            What You Get
-          </h2>
-
-          <div className="space-y-8 mb-10">
-            <div className="text-center">
-              <h3 className="text-xl sm:text-2xl font-semibold text-yellow-200 mb-3">
-                Daily manifestation notes at{' '}
-                <span className="relative inline-block">
-                  <span className="relative z-10">11:11 AM</span>
-                  <span className="absolute inset-0 blur-md bg-yellow-200 opacity-40 animate-pulse" />
-                </span>
-              </h3>
-              <p className="text-lg text-purple-100/80">
-                Personalized to YOUR goals. YOUR journey. YOUR reality.
-              </p>
+        <div className="bg-white rounded-3xl shadow-lg p-8 sm:p-12 mb-12 border-2 border-[#D4C4B8]">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-baseline gap-2 mb-4">
+              <span
+                className="text-6xl sm:text-7xl font-bold"
+                style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
+              >
+                $11.11
+              </span>
+              <span
+                className="text-2xl font-medium"
+                style={{ color: '#3D3331' }}
+              >
+                /month
+              </span>
             </div>
+            <p
+              className="text-lg mb-2"
+              style={{ color: '#3D3331' }}
+            >
+              The Universe's number. Your daily reminder.
+            </p>
+            <p
+              className="text-base"
+              style={{ color: '#3D3331', opacity: 0.7 }}
+            >
+              Delivered exactly when manifestation is strongest.
+            </p>
+          </div>
 
-            <div className="text-center">
-              <h3 className="text-xl sm:text-2xl font-semibold text-yellow-200 mb-3">
-                Your first note arrives February 22nd
-              </h3>
-              <p className="text-lg text-purple-100/80">
-                <span className="relative inline-block">
-                  <span className="relative z-10 font-semibold text-yellow-200">11:11 AM</span>
-                  <span className="absolute inset-0 blur-lg bg-yellow-200 opacity-40 animate-pulse" />
-                </span>{' '}
-                sharp. The universe doesn't wait.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-baseline gap-2 mb-2">
-                <span className="text-5xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-pink-200">
-                  $11.11
-                </span>
-                <span className="text-2xl text-purple-100">/month</span>
-              </div>
-              <p className="text-lg text-purple-100/80">
-                The universe's number. Your daily ritual. Cancel anytime.
-              </p>
+          <div className="mb-10">
+            <h3
+              className="text-xl font-semibold mb-6 text-center"
+              style={{ color: '#3D3331' }}
+            >
+              What's Included:
+            </h3>
+            <div className="grid gap-4">
+              {[
+                'Personalized handwritten manifestation note every day',
+                'Delivered at 11:11 AM in your timezone',
+                'Unique affirmations tailored to your specific goals',
+                'Access to your note gallery (all past notes saved)',
+                'Email delivery with high-quality image',
+                'Cancel anytime'
+              ].map((feature, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <Check
+                      className="w-6 h-6"
+                      style={{ color: '#3D3331' }}
+                    />
+                  </div>
+                  <p
+                    className="text-base"
+                    style={{ color: '#3D3331' }}
+                  >
+                    {feature}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="text-center">
             <Link
               href="/try/name"
-              className="group relative inline-block"
+              className="inline-flex items-center gap-2 rounded-full px-10 py-4 text-white font-medium text-lg hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: '#3D3331' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity animate-pulse" />
-              <div className="relative inline-flex items-center gap-3 rounded-full px-12 py-5 text-white font-semibold text-xl bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-600 hover:from-purple-500 hover:via-pink-500 hover:to-yellow-500 transition-all shadow-2xl">
-                <Sparkles className="w-6 h-6" />
-                <span>Join the February 22nd Wave</span>
-                <Sparkles className="w-6 h-6" />
-              </div>
+              <Sparkles className="w-5 h-5" />
+              Get Started
             </Link>
           </div>
-
-          <p className="text-center text-sm text-purple-200/60 mt-6">
-            Billing starts February 22. Your manifestation ritual starts the same day.
-          </p>
         </div>
 
-        <div className="text-center mt-12 space-y-4">
-          <div className="flex justify-center gap-8 text-purple-200/40 text-xs">
-            <span>✦</span>
-            <span>✦</span>
-            <span>✦</span>
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white rounded-2xl p-8 border-2 border-[#D4C4B8]">
+            <h3
+              className="text-2xl font-semibold mb-6"
+              style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
+            >
+              Payment & Billing
+            </h3>
+            <div className="space-y-4">
+              <div>
+                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Billing Cycle</p>
+                <p style={{ color: '#3D3331', opacity: 0.7 }}>
+                  Monthly, starting March 1st, 2026
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Payment Methods</p>
+                <p style={{ color: '#3D3331', opacity: 0.7 }}>
+                  Credit/Debit cards, UPI, Net Banking (via Razorpay)
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Currency</p>
+                <p style={{ color: '#3D3331', opacity: 0.7 }}>
+                  USD (International) / INR (India)
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Automatic Renewal</p>
+                <p style={{ color: '#3D3331', opacity: 0.7 }}>
+                  Yes, billed monthly until cancelled
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Cancellation</p>
+                <p style={{ color: '#3D3331', opacity: 0.7 }}>
+                  Cancel anytime — service continues until end of current billing period
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="text-purple-200/60 text-sm max-w-md mx-auto">
-            Join thousands who've aligned with the universe's rhythm. Your transformation begins at{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-yellow-200 font-semibold">11:11</span>
-              <span className="absolute inset-0 blur-md bg-yellow-200 opacity-40" />
-            </span>
-            .
+
+          <div className="bg-white rounded-2xl p-8 border-2 border-[#D4C4B8]">
+            <h3
+              className="text-2xl font-semibold mb-6"
+              style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
+            >
+              Money-Back Guarantee
+            </h3>
+            <div className="flex items-start gap-3 mb-6">
+              <Shield className="w-8 h-8 flex-shrink-0 mt-1" style={{ color: '#3D3331' }} />
+              <p style={{ color: '#3D3331' }}>
+                If you experience technical issues that prevent you from receiving your daily notes,
+                we'll extend your subscription by the number of days affected.
+              </p>
+            </div>
+            <p className="font-medium" style={{ color: '#3D3331' }}>
+              We stand by our promise: a note every single day at 11:11 AM.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center bg-white rounded-2xl p-8 border-2 border-[#D4C4B8]">
+          <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#3D3331' }} />
+          <h3
+            className="text-2xl font-semibold mb-3"
+            style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
+          >
+            Questions about pricing?
+          </h3>
+          <p className="mb-6" style={{ color: '#3D3331', opacity: 0.7 }}>
+            We're here to help with any questions you may have.
           </p>
+          <a
+            href="mailto:mail@dearmanifestor.com"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-white font-medium hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: '#3D3331' }}
+          >
+            <Mail className="w-5 h-5" />
+            Contact us at mail@dearmanifestor.com
+          </a>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
     </div>
   );
 }
