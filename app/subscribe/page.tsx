@@ -124,32 +124,32 @@ export default function SubscribePage() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-medium mb-8"
-            style={{ color: "#3D3331", fontFamily: "Crimson Pro" }}
+            className="text-5xl sm:text-6xl md:text-7xl mb-8"
+            style={{ color: "#3D3331", fontWeight: 500 }}
           >
             Become a Daily Manifestor
           </h1>
           <div className="space-y-6 max-w-2xl mx-auto">
             <p
-              className="text-lg sm:text-xl leading-relaxed"
+              className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331" }}
             >
               Right now, thousands are waking up to their manifestation note at 11:11
             </p>
             <p
-              className="text-lg sm:text-xl leading-relaxed font-medium"
+              className="text-lg sm:text-xl leading-relaxed font-medium font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331" }}
             >
               You've felt what one note can do.
             </p>
             <p
-              className="text-lg sm:text-xl leading-relaxed"
+              className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331" }}
             >
               Imagine that clarity. Every single morning. At the universe's most powerful moment.
             </p>
             <p
-              className="text-xl sm:text-2xl font-semibold mt-8"
+              className="text-xl sm:text-2xl font-semibold mt-8 font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331" }}
             >
               The next wave of manifestors begins February 22nd.
@@ -160,7 +160,7 @@ export default function SubscribePage() {
         <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 mb-12 border-2 border-[#D4C4B8]">
           <h2
             className="text-3xl sm:text-4xl font-semibold mb-10 text-center"
-            style={{ color: "#3D3331", fontFamily: "Crimson Pro" }}
+            style={{ color: "#3D3331" }}
           >
             What Daily Manifestors Get
           </h2>
@@ -174,7 +174,7 @@ export default function SubscribePage() {
                 Your personalized note at 11:11 AM
               </h3>
               <p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
                 Every single day. Aligned to YOUR goals. YOUR journey. YOUR reality.
@@ -189,7 +189,7 @@ export default function SubscribePage() {
                 You become part of the 11:11 ritual
               </h3>
               <p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
                 Join thousands who start their mornings with the universe's most powerful reminder.
@@ -204,7 +204,7 @@ export default function SubscribePage() {
                 Your first note arrives February 22nd
               </h3>
               <p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
                 11:11 AM sharp. The universe doesn't wait for anyone.
@@ -215,7 +215,7 @@ export default function SubscribePage() {
               <div className="inline-flex items-baseline gap-2 mb-3">
                 <span
                   className="text-6xl sm:text-7xl font-bold"
-                  style={{ color: "#3D3331", fontFamily: "Crimson Pro" }}
+                  style={{ color: "#3D3331" }}
                 >
                   $11.11
                 </span>
@@ -227,7 +227,7 @@ export default function SubscribePage() {
                 </span>
               </div>
               <p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
                 style={{ color: "#3D3331", opacity: 0.8 }}
               >
                 The universe's number. Your daily manifestation ritual. Cancel anytime.
@@ -239,7 +239,7 @@ export default function SubscribePage() {
             <button
               onClick={handleSubscribe}
               disabled={loading}
-              className="inline-flex items-center gap-3 rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              className="inline-flex items-center gap-3 rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg font-[family-name:var(--font-poppins)]"
               style={{ backgroundColor: "#3D3331" }}
             >
               {loading ? (
@@ -255,13 +255,13 @@ export default function SubscribePage() {
               )}
             </button>
             <p
-              className="text-sm mt-4"
+              className="text-sm mt-4 font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331", opacity: 0.7 }}
             >
               Billing starts February 22. Your manifestation ritual starts the same day.
             </p>
             <p
-              className="text-sm mt-2 italic"
+              className="text-sm mt-2 italic font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331", opacity: 0.6 }}
             >
               (We've already personalized 2 notes for you—now let us remind you every morning what you're calling in.)
