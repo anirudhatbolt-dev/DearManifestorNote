@@ -284,6 +284,5 @@ export default function SubscribePage() {
           </p>
         </div>
       </div>
-    </div>
   );
 }
