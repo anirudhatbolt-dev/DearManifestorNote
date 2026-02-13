@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 interface Testimonial {
@@ -177,13 +178,14 @@ export default function Testimonials() {
 
         {/* CTA Button */}
         <div className="flex flex-col items-center justify-center mt-12 lg:mt-16">
-          <button
+          <Link
+            href="/try/name"
             className="rounded-full px-8 py-3 lg:px-12 lg:py-4 text-white font-medium text-base lg:text-lg flex items-center gap-2 lg:gap-3 hover:opacity-90 transition-opacity font-[family-name:var(--font-poppins)]"
             style={{ backgroundColor: '#3D3331' }}
           >
             Get Your First Note — FREE
             <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
-          </button>
+          </Link>
           <p
             className="text-xs lg:text-sm mt-3 lg:mt-4 text-center"
             style={{ color: '#3D3331' }}
