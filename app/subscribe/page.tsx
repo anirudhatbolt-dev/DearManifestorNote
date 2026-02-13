@@ -134,7 +134,7 @@ export default function SubscribePage() {
               className="text-lg sm:text-xl leading-relaxed"
               style={{ color: "#3D3331" }}
             >
-              Right now, thousands are waking up to their manifestation note at 11:11.
+              Right now, thousands are waking up to their manifestation note at 11:11
             </p>
             <p
               className="text-lg sm:text-xl leading-relaxed font-medium"
