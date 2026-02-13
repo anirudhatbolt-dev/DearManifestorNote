@@ -249,19 +249,13 @@ export default function SubscribePage() {
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="hidden sm:inline w-5 h-5" />
                   Become a Daily Manifestor
                 </>
               )}
             </button>
             <p
-              className="text-sm mt-4 font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331", opacity: 0.7 }}
-            >
-              Billing starts February 22. Your manifestation ritual starts the same day.
-            </p>
-            <p
-              className="text-sm mt-2 italic font-[family-name:var(--font-poppins)]"
+              className="text-sm mt-4 italic font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331", opacity: 0.6 }}
             >
               (We've already personalized 2 notes for you—now let us remind you every morning what you're calling in.)
