@@ -269,20 +269,21 @@ export default function SubscribePage() {
           </div>
         </div>
 
-        <div className="text-center">
-          <p
-            className="text-base"
-            style={{ color: "#3D3331", opacity: 0.8 }}
-          >
-            Questions? Email us at{" "}
-            
-              href="mailto:mail@dearmanifestor.com"
-              className="underline hover:opacity-70 transition-opacity"
-            >
-              mail@dearmanifestor.com
-            </a>
-          </p>
-        </div>
+<div className="text-center">
+  <p
+    className="text-base"
+    style={{ color: "#3D3331", opacity: 0.8 }}
+  >
+    Questions? Email us at{" "}
+    <a
+      href="mailto:mail@dearmanifestor.com"
+      className="underline hover:opacity-70 transition-opacity"
+    >
+      mail@dearmanifestor.com
+    </a>
+  </p>
+</div>
       </div>
+    </div>
   );
 }
