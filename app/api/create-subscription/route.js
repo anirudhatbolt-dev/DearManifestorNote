@@ -30,23 +30,32 @@ export async function POST(req) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    const { data: profile } = await supabase
-      .from('user_profiles')
-      .select('name, phone, country_code')
-      .eq('id', user.id)
-      .single();
+const { data: profile } = await supabase
+  .from('user_profiles')
+  .select('name, phone, country_code')
+  .eq('id', user.id)
+  .single();
 
-    console.log('Creating customer for:', email);
+// ADD THESE 3 LINES HERE:
+console.log('Profile:', profile);
+console.log('User ID:', user.id);
+console.log('About to create customer with:', {
+  name: profile?.name || 'Manifestor',
+  email: email,
+  contact: profile?.phone || '+919999999999',
+});
 
-    // Create customer - REMOVE THE INNER TRY/CATCH
-    const customer = await razorpay.customers.create({
-      name: profile?.name || 'Manifestor',
-      email: email,
-      contact: profile?.phone || '+919999999999',
-      notes: {
-        user_id: user.id,
-      },
-    });
+console.log('Creating customer for:', email);
+
+const customer = await razorpay.customers.create({
+  name: profile?.name || 'Manifestor',
+  email: email,
+  contact: '+919999999999', // HARDCODE THIS FOR NOW
+  // COMMENT OUT NOTES:
+  // notes: {
+  //   user_id: user.id,
+  // },
+});
 
     console.log('Customer created:', customer.id);
 
