@@ -72,6 +72,8 @@ export default function SubscribePage() {
         description: "Daily Manifestation Notes",
         handler: async function (response: any) {
           try {
+console.log('Auth header:', `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.substring(0, 20)}...`);
+            
 const verifyResponse = await fetch(
   "https://fkdwhiwlxnrxxkirtzjj.supabase.co/functions/v1/verify-payment",
   {
