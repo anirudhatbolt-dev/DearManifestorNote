@@ -1,94 +1,102 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { NextRequest, NextResponse } from 'next/server';
+import Razorpay from 'razorpay';
+import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { email } = await request.json();
+    const { email } = await req.json();
 
-    if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
-      );
-    }
-
-    const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
-    const razorpaySecret = process.env.RAZORPAY_KEY_SECRET;
-
-    if (!razorpayKeyId || !razorpaySecret) {
-      return NextResponse.json(
-        { error: "Payment gateway not configured" },
-        { status: 500 }
-      );
-    }
-
-    const planId = process.env.RAZORPAY_PLAN_ID;
-
-    const auth = Buffer.from(`${razorpayKeyId}:${razorpaySecret}`).toString("base64");
-
-    const subscriptionResponse = await fetch("https://api.razorpay.com/v1/subscriptions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${auth}`,
-      },
-      body: JSON.stringify({
-        plan_id: planId,
-        customer_notify: 1,
-        quantity: 1,
-        total_count: 12,
-        start_at: Math.floor(new Date("2025-02-22T00:00:00Z").getTime() / 1000),
-        notes: {
-          cohort: "february_22_2025",
-        },
-      }),
+    const razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID!,
+      key_secret: process.env.RAZORPAY_KEY_SECRET!,
     });
 
-    if (!subscriptionResponse.ok) {
-      const error = await subscriptionResponse.json();
-      console.error("Razorpay error:", error);
-      return NextResponse.json(
-        { error: "Failed to create subscription" },
-        { status: 500 }
-      );
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
+    // Get user from Supabase by listing users with email filter
+    const { data: { users }, error: authError } = await supabase.auth.admin.listUsers();
+
+    if (authError) {
+      return NextResponse.json({ error: 'Failed to fetch user' }, { status: 500 });
     }
 
-    const subscription = await subscriptionResponse.json();
+    const user = users?.find(u => u.email === email);
 
-    const { data: userData } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    }
 
-    if (userData.user) {
-      const { error: dbError } = await supabase
-        .from("subscriptions")
-        .upsert({
-          user_id: userData.user.id,
-          razorpay_subscription_id: subscription.id,
-          subscription_status: "created",
-          batch_cohort: "february_22_2025",
-          billing_start_date: new Date("2025-02-22T00:00:00Z").toISOString(),
-          trial_start_date: new Date("2025-02-22T00:00:00Z").toISOString(),
-          updated_at: new Date().toISOString(),
-        }, {
-          onConflict: "user_id",
-        });
+    // Get user profile for name and phone
+    const { data: profile } = await supabase
+      .from('user_profiles')
+      .select('name, phone, country_code')
+      .eq('id', user.id)
+      .single();
 
-      if (dbError) {
-        console.error("Database error:", dbError);
-      }
+    // Step 1: Create Razorpay Customer
+    const customer = await razorpay.customers.create({
+      name: profile?.name || 'Manifestor',
+      email: email,
+      contact: profile?.phone || '',
+      notes: {
+        user_id: user.id,
+      },
+    });
+
+    console.log('Razorpay customer created:', customer.id);
+
+    // Step 2: Create Razorpay Subscription
+    const subscription = await razorpay.subscriptions.create({
+      plan_id: process.env.RAZORPAY_PLAN_ID!,
+      customer_notify: 1,
+      quantity: 1,
+      total_count: 12,
+      start_at: Math.floor(new Date('2026-02-22T00:00:00Z').getTime() / 1000),
+      addons: [],
+      notes: {
+        user_id: user.id,
+        customer_id: customer.id,
+        batch_cohort: 'feb_22_wave',
+      },
+    });
+
+    console.log('Razorpay subscription created:', subscription.id);
+
+    // Step 3: Save to Supabase subscriptions table
+    const { error: subError } = await supabase
+      .from('subscriptions')
+      .upsert({
+        user_id: user.id,
+        razorpay_customer_id: customer.id,
+        razorpay_subscription_id: subscription.id,
+        subscription_status: subscription.status,
+        billing_start_date: new Date('2026-02-22'),
+        trial_start_date: new Date(),
+        trial_end_date: new Date('2026-02-22'),
+        batch_cohort: 'feb_22_wave',
+        email_enabled: true,
+        phone_enabled: !!profile?.phone,
+        notes_sent_count: 0,
+      });
+
+    if (subError) {
+      console.error('Supabase subscription error:', subError);
+      throw subError;
     }
 
     return NextResponse.json({
+      success: true,
       subscriptionId: subscription.id,
+      customerId: customer.id,
     });
-  } catch (error) {
-    console.error("Subscription creation error:", error);
+
+  } catch (error: any) {
+    console.error('Create subscription error:', error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: error.message || 'Failed to create subscription' },
       { status: 500 }
     );
   }
