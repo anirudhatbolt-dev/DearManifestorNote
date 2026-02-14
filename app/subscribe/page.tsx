@@ -72,7 +72,9 @@ export default function SubscribePage() {
         description: "Daily Manifestation Notes",
         handler: async function (response: any) {
           try {
-            const verifyResponse = await fetch("/api/verify-payment", {
+        const verifyResponse = await fetch(
+        "https://fkdwhiwlxnrxxkirtzjj.supabase.co/functions/v1/verify-payment",
+        {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
