@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 interface DailyNote {
@@ -19,6 +20,7 @@ export default function GalleryPage() {
   const [notes, setNotes] = useState<DailyNote[]>([]);
   const [loading, setLoading] = useState(true);
   const [userName, setUserName] = useState("");
+  const [hasSubscription, setHasSubscription] = useState(false);
 
   useEffect(() => {
     const loadUserData = async () => {
@@ -39,6 +41,14 @@ export default function GalleryPage() {
         if (profile) {
           setUserName(profile.name);
         }
+
+        const { data: subscription } = await supabase
+          .from("subscriptions")
+          .select("id")
+          .eq("user_id", user.id)
+          .maybeSingle();
+
+        setHasSubscription(!!subscription);
 
         const { data: notesData, error } = await supabase
           .from("daily_notes")
@@ -76,9 +86,24 @@ export default function GalleryPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#3D3331] mb-4">
             Welcome, {userName}! 🌟
           </h1>
-          <p className="text-lg text-[#3D3331]/70">
+          <p className="text-lg text-[#3D3331]/70 mb-3">
             Your next manifestation note will arrive on <span className="font-bold">February 22nd</span> at <span className="font-bold">11:11 AM</span>.
           </p>
+          {!hasSubscription && (
+            <div className="mt-6 flex flex-col items-center gap-4">
+              <p className="text-base text-[#3D3331]/80">
+                Want such notes to arrive daily at 11:11am?
+              </p>
+              <Link
+                href="/subscribe"
+                className="rounded-full px-8 py-3 text-white font-medium text-base flex items-center gap-2 hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: '#3D3331' }}
+              >
+                Become a daily manifestor
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
         </div>
 
         {notes.length === 0 ? (
