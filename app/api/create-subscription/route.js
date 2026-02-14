@@ -37,7 +37,6 @@ export async function POST(req) {
     const customer = await razorpay.customers.create({
       name: profile?.name || 'Manifestor',
       email: email,
-      contact: profile?.phone || '',
       notes: {
         user_id: user.id,
       },
