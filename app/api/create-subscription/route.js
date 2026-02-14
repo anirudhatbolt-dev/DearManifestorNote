@@ -19,12 +19,14 @@ export async function POST(req) {
     const { data: { users }, error: authError } = await supabase.auth.admin.listUsers();
     
     if (authError) {
+      console.error('Auth error:', authError);
       return NextResponse.json({ error: 'Failed to fetch user' }, { status: 500 });
     }
 
     const user = users?.find(u => u.email === email);
     
     if (!user) {
+      console.error('User not found:', email);
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
@@ -34,22 +36,24 @@ export async function POST(req) {
       .eq('id', user.id)
       .single();
 
-try {
-  const customer = await razorpay.customers.create({
-    name: profile?.name || 'Manifestor',
-    email: email,
-    contact: profile?.phone || '+919999999999', // Dummy number if missing
-    notes: {
-      user_id: user.id,
-    },
-  });
-} catch (razorpayError) {
-  console.error('RAZORPAY CUSTOMER ERROR:', JSON.stringify(razorpayError, null, 2));
-  throw razorpayError;
-}
+    console.log('Creating customer for:', email);
 
+    // Create customer - REMOVE THE INNER TRY/CATCH
+    const customer = await razorpay.customers.create({
+      name: profile?.name || 'Manifestor',
+      email: email,
+      contact: profile?.phone || '+919999999999',
+      notes: {
+        user_id: user.id,
+      },
+    });
+
+    console.log('Customer created:', customer.id);
+
+    // Create subscription
     const subscription = await razorpay.subscriptions.create({
       plan_id: process.env.RAZORPAY_PLAN_ID,
+      customer_id: customer.id, // ADD THIS - it was missing!
       customer_notify: 1,
       quantity: 1,
       total_count: 12,
@@ -60,6 +64,9 @@ try {
       },
     });
 
+    console.log('Subscription created:', subscription.id);
+
+    // Save to Supabase
     const { error: subError } = await supabase
       .from('subscriptions')
       .upsert({
@@ -77,8 +84,11 @@ try {
       });
 
     if (subError) {
+      console.error('Supabase error:', subError);
       throw subError;
     }
+
+    console.log('Success!');
 
     return NextResponse.json({
       success: true,
@@ -89,7 +99,10 @@ try {
   } catch (error) {
     console.error('Create subscription error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to create subscription' },
+      { 
+        error: error.message || 'Failed to create subscription',
+        details: error.toString()
+      },
       { status: 500 }
     );
   }
