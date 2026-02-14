@@ -2,32 +2,39 @@ import { NextRequest, NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
 import { createClient } from '@supabase/supabase-js';
 
+// Initialize OUTSIDE the function
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID!,
+  key_secret: process.env.RAZORPAY_KEY_SECRET!,
+});
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
 
-    const razorpay = new Razorpay({
-      key_id: process.env.RAZORPAY_KEY_ID!,
-      key_secret: process.env.RAZORPAY_KEY_SECRET!,
-    });
-
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
-    );
+    console.log('Creating subscription for:', email);
 
     // Get user from Supabase by listing users with email filter
     const { data: { users }, error: authError } = await supabase.auth.admin.listUsers();
-
+    
     if (authError) {
+      console.error('Auth error:', authError);
       return NextResponse.json({ error: 'Failed to fetch user' }, { status: 500 });
     }
 
     const user = users?.find(u => u.email === email);
-
+    
     if (!user) {
+      console.error('User not found:', email);
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
+
+    console.log('Found user:', user.id);
 
     // Get user profile for name and phone
     const { data: profile } = await supabase
@@ -35,6 +42,8 @@ export async function POST(req: NextRequest) {
       .select('name, phone, country_code')
       .eq('id', user.id)
       .single();
+
+    console.log('User profile:', profile);
 
     // Step 1: Create Razorpay Customer
     const customer = await razorpay.customers.create({
@@ -86,6 +95,8 @@ export async function POST(req: NextRequest) {
       console.error('Supabase subscription error:', subError);
       throw subError;
     }
+
+    console.log('Subscription saved successfully');
 
     return NextResponse.json({
       success: true,
