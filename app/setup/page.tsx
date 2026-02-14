@@ -132,7 +132,7 @@ export default function SetupPage() {
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      router.push("/gallery");
+      router.push("/subscribe");  
     } catch (err: any) {
       console.error("Error in saveUserData:", err);
       setError(err.message || "Something went wrong. Please try again.");
