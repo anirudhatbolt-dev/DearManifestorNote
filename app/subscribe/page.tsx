@@ -72,13 +72,14 @@ export default function SubscribePage() {
         description: "Daily Manifestation Notes",
         handler: async function (response: any) {
           try {
-        const verifyResponse = await fetch(
-        "https://fkdwhiwlxnrxxkirtzjj.supabase.co/functions/v1/verify-payment",
-        {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
+const verifyResponse = await fetch(
+  "https://fkdwhiwlxnrxxkirtzjj.supabase.co/functions/v1/verify-payment",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+    },
               body: JSON.stringify({
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_subscription_id: response.razorpay_subscription_id,
