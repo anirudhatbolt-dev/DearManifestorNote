@@ -34,13 +34,19 @@ export async function POST(req) {
       .eq('id', user.id)
       .single();
 
-    const customer = await razorpay.customers.create({
-      name: profile?.name || 'Manifestor',
-      email: email,
-      notes: {
-        user_id: user.id,
-      },
-    });
+try {
+  const customer = await razorpay.customers.create({
+    name: profile?.name || 'Manifestor',
+    email: email,
+    contact: profile?.phone || '',
+    notes: {
+      user_id: user.id,
+    },
+  });
+} catch (razorpayError) {
+  console.error('RAZORPAY CUSTOMER ERROR:', JSON.stringify(razorpayError, null, 2));
+  throw razorpayError;
+}
 
     const subscription = await razorpay.subscriptions.create({
       plan_id: process.env.RAZORPAY_PLAN_ID,
