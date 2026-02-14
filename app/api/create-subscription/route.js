@@ -50,11 +50,8 @@ console.log('Creating customer for:', email);
 const customer = await razorpay.customers.create({
   name: profile?.name || 'Manifestor',
   email: email,
-  contact: '+919999999999', // HARDCODE THIS FOR NOW
-  // COMMENT OUT NOTES:
-  // notes: {
-  //   user_id: user.id,
-  // },
+  contact: '+919999999999',
+  // NO NOTES
 });
 
     console.log('Customer created:', customer.id);
