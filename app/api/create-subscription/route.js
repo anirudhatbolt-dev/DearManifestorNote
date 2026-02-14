@@ -1,51 +1,39 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize OUTSIDE the function
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-export async function POST(req: NextRequest) {
+export async function POST(req) {
   try {
     const { email } = await req.json();
 
-    console.log('Creating subscription for:', email);
+    const razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
 
-    // Get user from Supabase by listing users with email filter
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
+    );
+
     const { data: { users }, error: authError } = await supabase.auth.admin.listUsers();
     
     if (authError) {
-      console.error('Auth error:', authError);
       return NextResponse.json({ error: 'Failed to fetch user' }, { status: 500 });
     }
 
     const user = users?.find(u => u.email === email);
     
     if (!user) {
-      console.error('User not found:', email);
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    console.log('Found user:', user.id);
-
-    // Get user profile for name and phone
     const { data: profile } = await supabase
       .from('user_profiles')
       .select('name, phone, country_code')
       .eq('id', user.id)
       .single();
 
-    console.log('User profile:', profile);
-
-    // Step 1: Create Razorpay Customer
     const customer = await razorpay.customers.create({
       name: profile?.name || 'Manifestor',
       email: email,
@@ -55,26 +43,18 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    console.log('Razorpay customer created:', customer.id);
-
-    // Step 2: Create Razorpay Subscription
     const subscription = await razorpay.subscriptions.create({
-      plan_id: process.env.RAZORPAY_PLAN_ID!,
+      plan_id: process.env.RAZORPAY_PLAN_ID,
       customer_notify: 1,
       quantity: 1,
       total_count: 12,
       start_at: Math.floor(new Date('2026-02-22T00:00:00Z').getTime() / 1000),
-      addons: [],
       notes: {
         user_id: user.id,
-        customer_id: customer.id,
         batch_cohort: 'feb_22_wave',
       },
     });
 
-    console.log('Razorpay subscription created:', subscription.id);
-
-    // Step 3: Save to Supabase subscriptions table
     const { error: subError } = await supabase
       .from('subscriptions')
       .upsert({
@@ -92,11 +72,8 @@ export async function POST(req: NextRequest) {
       });
 
     if (subError) {
-      console.error('Supabase subscription error:', subError);
       throw subError;
     }
-
-    console.log('Subscription saved successfully');
 
     return NextResponse.json({
       success: true,
@@ -104,7 +81,7 @@ export async function POST(req: NextRequest) {
       customerId: customer.id,
     });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('Create subscription error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create subscription' },
