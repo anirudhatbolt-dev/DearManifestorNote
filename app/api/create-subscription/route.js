@@ -38,7 +38,7 @@ try {
   const customer = await razorpay.customers.create({
     name: profile?.name || 'Manifestor',
     email: email,
-    contact: profile?.phone || '',
+    contact: profile?.phone || '+919999999999', // Dummy number if missing
     notes: {
       user_id: user.id,
     },
