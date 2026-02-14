@@ -38,15 +38,20 @@ export default function SubscribePage() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/create-subscription", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: user.email,
-        }),
-      });
+      // CHANGED: Using Supabase Edge Function
+      const response = await fetch(
+        "https://fkdwhiwlxnrxxkirtzjj.supabase.co/functions/v1/create-subscription",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({
+            email: user.email,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -262,8 +267,6 @@ export default function SubscribePage() {
             </p>
           </div>
         </div>
-
-
       </div>
     </div>
   );
