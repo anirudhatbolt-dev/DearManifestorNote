@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function CTASection() {
+  const { user } = useAuth();
   return (
     <section className="bg-[#E5DDD5] py-16 px-4 md:px-8 lg:py-20">
       <div className="max-w-4xl mx-auto text-center">
@@ -23,19 +25,21 @@ export default function CTASection() {
 
         <div className="flex flex-col items-center justify-center">
           <Link
-            href="/try/name"
+            href={user ? "/gallery" : "/try/name"}
             className="rounded-full px-8 py-3 lg:px-12 lg:py-4 text-white font-medium text-base lg:text-lg flex items-center gap-2 lg:gap-3 hover:opacity-90 transition-opacity font-[family-name:var(--font-poppins)]"
             style={{ backgroundColor: '#3D3331' }}
           >
-            Create my note
+            {user ? "Gallery" : "Create my note"}
             <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
           </Link>
-          <p
-            className="text-xs lg:text-sm mt-3 lg:mt-4 text-center"
-            style={{ color: '#3D3331' }}
-          >
-            FREE | No Signup
-          </p>
+          {!user && (
+            <p
+              className="text-xs lg:text-sm mt-3 lg:mt-4 text-center"
+              style={{ color: '#3D3331' }}
+            >
+              FREE | No Signup
+            </p>
+          )}
         </div>
       </div>
     </section>

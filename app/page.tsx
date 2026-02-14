@@ -1,10 +1,14 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
+import { useAuth } from '@/hooks/use-auth';
 
 export default function Home() {
+  const { user } = useAuth();
   return (
     <>
       <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 lg:pt-0" style={{ backgroundColor: '#E5DDD5' }}>
@@ -26,19 +30,21 @@ export default function Home() {
               <div className="lg:hidden flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center mb-8">
                   <Link
-                    href="/try/name"
+                    href={user ? "/gallery" : "/try/name"}
                     className="rounded-full px-8 py-3 text-white font-medium text-base flex items-center gap-2 hover:opacity-90 transition-opacity min-w-[260px] justify-center font-[family-name:var(--font-poppins)]"
                     style={{ backgroundColor: '#3D3331' }}
                   >
-                    Try it yourself
+                    {user ? "Gallery" : "Try it yourself"}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <p
-                    className="text-xs mt-3 text-center"
-                    style={{ color: '#3D3331' }}
-                  >
-                    No signup required | No credit card required
-                  </p>
+                  {!user && (
+                    <p
+                      className="text-xs mt-3 text-center"
+                      style={{ color: '#3D3331' }}
+                    >
+                      No signup required | No credit card required
+                    </p>
+                  )}
                 </div>
                 <div className="w-full flex items-center justify-center py-4">
                   <div className="relative w-full max-w-sm aspect-square">
@@ -55,19 +61,21 @@ export default function Home() {
               <div className="hidden lg:flex lg:justify-start">
                 <div className="flex flex-col items-center">
                   <Link
-                    href="/try/name"
+                    href={user ? "/gallery" : "/try/name"}
                     className="rounded-full px-12 py-4 text-white font-medium text-lg flex items-center gap-3 hover:opacity-90 transition-opacity font-[family-name:var(--font-poppins)]"
                     style={{ backgroundColor: '#3D3331' }}
                   >
-                    Try it yourself
+                    {user ? "Gallery" : "Try it yourself"}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
-                  <p
-                    className="text-sm mt-4 text-center"
-                    style={{ color: '#3D3331' }}
-                  >
-                    No signup required | No credit card required
-                  </p>
+                  {!user && (
+                    <p
+                      className="text-sm mt-4 text-center"
+                      style={{ color: '#3D3331' }}
+                    >
+                      No signup required | No credit card required
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -77,7 +77,7 @@ export default function GalleryPage() {
             Welcome, {userName}! 🌟
           </h1>
           <p className="text-lg text-[#3D3331]/70">
-            Your manifestation journey starts here
+            Your next manifestation note will arrive on <span className="font-bold">February 22nd</span> at <span className="font-bold">11:11 AM</span>.
           </p>
         </div>
 

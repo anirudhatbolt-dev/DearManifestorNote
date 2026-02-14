@@ -90,7 +90,7 @@ const verifyResponse = await fetch(
             });
 
             if (verifyResponse.ok) {
-              router.push("/subscribe/success");
+              router.push("/gallery");
             } else {
               alert("Payment verification failed. Please contact support.");
             }
