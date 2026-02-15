@@ -117,7 +117,7 @@ export async function POST(request: Request) {
     `;
 
     const data = await resend.emails.send({
-      from: 'DearManifestor <mail@dearmanifestor.com>',
+      from: 'Daily Manifestor <mail@dearmanifestor.com>',
       to: ['mail@dearmanifestor.com'],
       replyTo: email,
       subject: `[Contact Form] ${subject}`,
