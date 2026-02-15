@@ -112,14 +112,13 @@ export default function SetupPage() {
 
       console.log("Step 5: Saving user preferences...");
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const { error: preferencesError } = await supabase
-        .from("user_preferences")
-        .insert({
+      const { error: preferencesError } = await supabase.from('user_preferences').insert({
           user_id: user.id,
-          delivery_time: "11:11:00",
-          timezone: timezone,
+          delivery_time: '11:11:00',
+          timezone: data.timezone,  // ✅ This works
+          utc_offset: data.utc_offset,  // ← Is this line there?
           is_active: true,
-        });
+      })
 
       if (preferencesError) {
         console.error("Preferences error:", preferencesError);
