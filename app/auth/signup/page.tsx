@@ -21,8 +21,22 @@ export default function SignUpPage() {
     const hashParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = hashParams.get('access_token');
     if (accessToken) {
-      // OAuth callback - redirect to setup
-      router.push('/setup');
+      // OAuth callback - check if user has profile to determine redirect
+      const checkUserProfile = async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          const { data: profile } = await supabase
+            .from('user_profiles')
+            .select('id')
+            .eq('id', session.user.id)
+            .maybeSingle();
+
+          // If profile exists, user is signing in -> gallery
+          // If no profile, user is signing up -> setup
+          router.push(profile ? '/gallery' : '/setup');
+        }
+      };
+      checkUserProfile();
       return;
     }
 
@@ -40,18 +54,6 @@ export default function SignUpPage() {
         console.error("Error parsing manifestation data:", e);
       }
     }
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (event === "SIGNED_IN" && session) {
-          router.push("/setup");
-        }
-      }
-    );
-
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
   }, [router]);
 
   const handleEmailAuth = async (e: React.FormEvent) => {
@@ -84,7 +86,7 @@ export default function SignUpPage() {
         if (signInError) throw signInError;
 
         if (data?.session) {
-          router.push("/setup");
+          router.push("/gallery");
         }
       }
     } catch (err: any) {
