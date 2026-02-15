@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Check, Mail, Shield, Sparkles } from 'lucide-react';
+import { Check, Mail, Sparkles } from 'lucide-react';
 
 export default function PricingPage() {
   return (
@@ -93,68 +93,6 @@ export default function PricingPage() {
               <Sparkles className="w-5 h-5" />
               Get Started
             </Link>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white rounded-2xl p-8 border-2 border-[#D4C4B8]">
-            <h3
-              className="text-2xl font-semibold mb-6"
-              style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
-            >
-              Payment & Billing
-            </h3>
-            <div className="space-y-4">
-              <div>
-                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Billing Cycle</p>
-                <p style={{ color: '#3D3331', opacity: 0.7 }}>
-                  Monthly, starting March 1st, 2026
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Payment Methods</p>
-                <p style={{ color: '#3D3331', opacity: 0.7 }}>
-                  Credit/Debit cards, UPI, Net Banking (via Razorpay)
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Currency</p>
-                <p style={{ color: '#3D3331', opacity: 0.7 }}>
-                  USD (International) / INR (India)
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Automatic Renewal</p>
-                <p style={{ color: '#3D3331', opacity: 0.7 }}>
-                  Yes, billed monthly until cancelled
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold mb-1" style={{ color: '#3D3331' }}>Cancellation</p>
-                <p style={{ color: '#3D3331', opacity: 0.7 }}>
-                  Cancel anytime — service continues until end of current billing period
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-2xl p-8 border-2 border-[#D4C4B8]">
-            <h3
-              className="text-2xl font-semibold mb-6"
-              style={{ color: '#3D3331', fontFamily: 'Crimson Pro' }}
-            >
-              Money-Back Guarantee
-            </h3>
-            <div className="flex items-start gap-3 mb-6">
-              <Shield className="w-8 h-8 flex-shrink-0 mt-1" style={{ color: '#3D3331' }} />
-              <p style={{ color: '#3D3331' }}>
-                If you experience technical issues that prevent you from receiving your daily notes,
-                we'll extend your subscription by the number of days affected.
-              </p>
-            </div>
-            <p className="font-medium" style={{ color: '#3D3331' }}>
-              We stand by our promise: a note every single day at 11:11 AM.
-            </p>
           </div>
         </div>
 
