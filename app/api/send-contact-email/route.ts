@@ -117,10 +117,10 @@ export async function POST(request: Request) {
     `;
 
     const data = await resend.emails.send({
-      from: 'DearManifestor <onboarding@resend.dev>',
-      to: ['mail@dailymanifestor.com'],
+      from: 'DearManifestor <mail@dearmanifestor.com>',
+      to: ['mail@dearmanifestor.com'],
       replyTo: email,
-      subject: `Contact Form: ${subject}`,
+      subject: `[Contact Form] ${subject}`,
       html: htmlContent,
     });
 
