@@ -64,11 +64,9 @@ export default function ContactPage() {
       if (error) throw error;
 
       try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-contact-email`;
-        await fetch(apiUrl, {
+        await fetch('/api/send-contact-email', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formData),
