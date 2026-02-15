@@ -24,13 +24,6 @@ export default function Footer() {
               Pricing
             </Link>
             <Link
-              href="/subscribe"
-              className="transition-opacity hover:opacity-70"
-              style={{ color: '#3D3331' }}
-            >
-              Subscribe
-            </Link>
-            <Link
               href="/contact"
               className="transition-opacity hover:opacity-70"
               style={{ color: '#3D3331' }}
