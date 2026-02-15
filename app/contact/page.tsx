@@ -239,11 +239,6 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <h3 className="font-semibold text-lg text-[#3D3331] mb-2">When will I receive my first note?</h3>
-              <p className="text-[#3D3331]/70">Your first note will be delivered on February 20th, 2026 at 11:11 AM in your timezone.</p>
-            </div>
-
-            <div>
               <h3 className="font-semibold text-lg text-[#3D3331] mb-2">Can I change my delivery time?</h3>
               <p className="text-[#3D3331]/70">Currently, all notes are delivered at 11:11 AM to harness the Universe's most powerful manifestation energy.</p>
             </div>
