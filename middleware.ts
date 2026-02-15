@@ -79,6 +79,11 @@ export async function middleware(req: NextRequest) {
     '/subscribe',
     '/subscribe/success',
     '/gallery',
+    '/terms',
+    '/privacy',
+    '/refund',
+    '/contact',
+    '/about',
   ];
 
   // Allow access to API routes and static files
