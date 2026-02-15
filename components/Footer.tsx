@@ -38,6 +38,13 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <Link
+              href="/refund"
+              className="transition-opacity hover:opacity-70"
+              style={{ color: '#3D3331' }}
+            >
+              Refund Policy
+            </Link>
+            <Link
               href="/terms"
               className="transition-opacity hover:opacity-70"
               style={{ color: '#3D3331' }}

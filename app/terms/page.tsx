@@ -144,33 +144,16 @@ export default function TermsAndConditionsPage() {
                   className="text-xl font-semibold mb-3"
                   style={{ color: '#3D3331' }}
                 >
-                  Free Trial
-                </h3>
-                <ul
-                  className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  <li>10-day free trial (February 20 - March 1, 2026)</li>
-                  <li>Access to full Service features</li>
-                  <li>Can cancel anytime during trial with no charge</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3
-                  className="text-xl font-semibold mb-3"
-                  style={{ color: '#3D3331' }}
-                >
                   Paid Subscription
                 </h3>
                 <ul
                   className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6"
                   style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
                 >
-                  <li><strong>Price:</strong> $11.11/month (or ₹935/month for Indian users)</li>
-                  <li><strong>Billing Date:</strong> 1st of each month (starting March 1, 2026)</li>
+                  <li><strong>Price:</strong> $11.11/month</li>
+                  <li><strong>Billing Cycle:</strong> Monthly subscription</li>
                   <li><strong>Auto-Renewal:</strong> Automatically renews until cancelled</li>
-                  <li><strong>Payment Methods:</strong> Credit/Debit cards, UPI, Net Banking (via Razorpay)</li>
+                  <li><strong>Payment Methods:</strong> Credit/Debit cards via secure payment processing</li>
                 </ul>
               </div>
 
@@ -187,7 +170,6 @@ export default function TermsAndConditionsPage() {
                 >
                   <li>Cancel anytime through your account dashboard or email</li>
                   <li>Service continues until end of current billing period</li>
-                  <li>No refunds for partial months (see Refund Policy)</li>
                 </ul>
               </div>
 
@@ -202,7 +184,7 @@ export default function TermsAndConditionsPage() {
                   className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
                   style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
                 >
-                  We reserve the right to change pricing with 30 days' notice. Existing subscribers will be grandfathered at their current rate for 90 days.
+                  We reserve the right to change pricing with 30 days' notice via email.
                 </p>
               </div>
             </div>
