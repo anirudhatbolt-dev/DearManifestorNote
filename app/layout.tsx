@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Crimson_Pro, Poppins } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { RouteProtectionProvider } from '@/components/RouteProtectionProvider';
 
 const crimsonPro = Crimson_Pro({ subsets: ['latin'] });
 const poppins = Poppins({
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimsonPro.className} ${poppins.variable}`}>
+        <RouteProtectionProvider />
         <Navbar />
         {children}
         <Footer />
