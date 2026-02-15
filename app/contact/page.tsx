@@ -94,20 +94,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50">
+    <div className="min-h-screen bg-[#E5DDD5]">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-amber-900 mb-4">Contact Us</h1>
-          <p className="text-2xl text-amber-800 mb-8">We're Here to Support Your Manifestation Journey</p>
-          <p className="text-lg text-amber-700 max-w-2xl mx-auto">
+          <h1 className="text-5xl font-bold text-[#3D3331] mb-4">Contact Us</h1>
+          <p className="text-2xl text-[#3D3331] mb-8">We're Here to Support Your Manifestation Journey</p>
+          <p className="text-lg text-[#3D3331]/70 max-w-2xl mx-auto">
             Have questions? Need support? Want to share your manifestation success story? We'd love to hear from you.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <Card className="bg-white/80 backdrop-blur-sm border-amber-200 shadow-lg">
+          <Card className="bg-white/80 backdrop-blur-sm border-[#3D3331]/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-amber-900">
+              <CardTitle className="flex items-center gap-2 text-[#3D3331]">
                 <Mail className="w-5 h-5" />
                 Email Support
               </CardTitle>
@@ -115,39 +115,39 @@ export default function ContactPage() {
             <CardContent>
               <a
                 href="mailto:mail@dearmanifestor.com"
-                className="text-xl font-semibold text-amber-700 hover:text-amber-900 transition-colors"
+                className="text-xl font-semibold text-[#3D3331] hover:text-[#3D3331]/80 transition-colors"
               >
                 mail@dearmanifestor.com
               </a>
-              <p className="text-amber-600 mt-2">
+              <p className="text-[#3D3331]/70 mt-2">
                 We typically respond within 24 hours (often much faster).
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-sm border-amber-200 shadow-lg">
+          <Card className="bg-white/80 backdrop-blur-sm border-[#3D3331]/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-amber-900">Quick Response</CardTitle>
+              <CardTitle className="text-[#3D3331]">Quick Response</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-amber-700">
+              <p className="text-[#3D3331]/70">
                 Our dedicated support team reads every message personally. Your manifestation journey matters to us, and we're committed to providing you with timely, thoughtful responses.
               </p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="bg-white/80 backdrop-blur-sm border-amber-200 shadow-lg mb-12">
+        <Card className="bg-white/80 backdrop-blur-sm border-[#3D3331]/20 shadow-lg mb-12">
           <CardHeader>
-            <CardTitle className="text-amber-900">Contact Form</CardTitle>
-            <CardDescription className="text-amber-600">
+            <CardTitle className="text-[#3D3331]">Contact Form</CardTitle>
+            <CardDescription className="text-[#3D3331]/70">
               Fill out the form below and we'll get back to you as soon as possible.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="text-amber-900">Name</Label>
+                <Label htmlFor="name" className="text-[#3D3331]">Name</Label>
                 <Input
                   id="name"
                   name="name"
@@ -155,13 +155,13 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Your name"
-                  className="mt-1 border-amber-200 focus:border-amber-400 focus:ring-amber-400"
+                  className="mt-1 border-[#3D3331]/20 focus:border-[#3D3331] focus:ring-[#3D3331]"
                   required
                 />
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-amber-900">Email</Label>
+                <Label htmlFor="email" className="text-[#3D3331]">Email</Label>
                 <Input
                   id="email"
                   name="email"
@@ -169,13 +169,13 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your.email@example.com"
-                  className="mt-1 border-amber-200 focus:border-amber-400 focus:ring-amber-400"
+                  className="mt-1 border-[#3D3331]/20 focus:border-[#3D3331] focus:ring-[#3D3331]"
                   required
                 />
               </div>
 
               <div>
-                <Label htmlFor="subject" className="text-amber-900">Subject</Label>
+                <Label htmlFor="subject" className="text-[#3D3331]">Subject</Label>
                 <Input
                   id="subject"
                   name="subject"
@@ -183,13 +183,13 @@ export default function ContactPage() {
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder="What can we help you with?"
-                  className="mt-1 border-amber-200 focus:border-amber-400 focus:ring-amber-400"
+                  className="mt-1 border-[#3D3331]/20 focus:border-[#3D3331] focus:ring-[#3D3331]"
                   required
                 />
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-amber-900">Message</Label>
+                <Label htmlFor="message" className="text-[#3D3331]">Message</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -197,7 +197,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   placeholder="Tell us more about your question or concern..."
                   rows={6}
-                  className="mt-1 border-amber-200 focus:border-amber-400 focus:ring-amber-400"
+                  className="mt-1 border-[#3D3331]/20 focus:border-[#3D3331] focus:ring-[#3D3331]"
                   required
                 />
               </div>
@@ -219,7 +219,8 @@ export default function ContactPage() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-semibold py-6 text-lg"
+                className="w-full text-white font-semibold py-6 text-lg"
+                style={{ backgroundColor: '#3D3331' }}
               >
                 {isSubmitting ? (
                   'Sending...'
@@ -234,36 +235,36 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-sm border-amber-200 shadow-lg mb-12">
+        <Card className="bg-white/80 backdrop-blur-sm border-[#3D3331]/20 shadow-lg mb-12">
           <CardHeader>
-            <CardTitle className="text-amber-900">Frequently Asked Questions</CardTitle>
+            <CardTitle className="text-[#3D3331]">Frequently Asked Questions</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <h3 className="font-semibold text-lg text-amber-900 mb-2">When will I receive my first note?</h3>
-              <p className="text-amber-700">Your first note will be delivered on February 20th, 2026 at 11:11 AM in your timezone.</p>
+              <h3 className="font-semibold text-lg text-[#3D3331] mb-2">When will I receive my first note?</h3>
+              <p className="text-[#3D3331]/70">Your first note will be delivered on February 20th, 2026 at 11:11 AM in your timezone.</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg text-amber-900 mb-2">Can I change my delivery time?</h3>
-              <p className="text-amber-700">Currently, all notes are delivered at 11:11 AM to harness the Universe's most powerful manifestation energy.</p>
+              <h3 className="font-semibold text-lg text-[#3D3331] mb-2">Can I change my delivery time?</h3>
+              <p className="text-[#3D3331]/70">Currently, all notes are delivered at 11:11 AM to harness the Universe's most powerful manifestation energy.</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg text-amber-900 mb-2">What if I don't receive my note?</h3>
-              <p className="text-amber-700">Contact us immediately at mail@dearmanifestor.com and we'll resolve the issue within 24 hours.</p>
+              <h3 className="font-semibold text-lg text-[#3D3331] mb-2">What if I don't receive my note?</h3>
+              <p className="text-[#3D3331]/70">Contact us immediately at mail@dearmanifestor.com and we'll resolve the issue within 24 hours.</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg text-amber-900 mb-2">How do I cancel my subscription?</h3>
-              <p className="text-amber-700">You can cancel anytime from your account dashboard or by emailing mail@dearmanifestor.com.</p>
+              <h3 className="font-semibold text-lg text-[#3D3331] mb-2">How do I cancel my subscription?</h3>
+              <p className="text-[#3D3331]/70">You can cancel anytime from your account dashboard or by emailing mail@dearmanifestor.com.</p>
             </div>
           </CardContent>
         </Card>
 
-        <div className="text-center bg-gradient-to-r from-amber-100 to-orange-100 p-8 rounded-lg border border-amber-200">
-          <h2 className="text-2xl font-bold text-amber-900 mb-4">Our Commitment to You</h2>
-          <p className="text-lg text-amber-800 max-w-2xl mx-auto">
+        <div className="text-center bg-[#3D3331]/10 p-8 rounded-lg border border-[#3D3331]/20">
+          <h2 className="text-2xl font-bold text-[#3D3331] mb-4">Our Commitment to You</h2>
+          <p className="text-lg text-[#3D3331]/80 max-w-2xl mx-auto">
             Every inquiry matters to us. We're a small team that personally reads and responds to every message.
             Your manifestation journey is important to us, and we're here to support you every step of the way.
           </p>

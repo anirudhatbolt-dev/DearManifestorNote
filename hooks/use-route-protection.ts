@@ -15,6 +15,7 @@ const allowedAuthenticatedRoutes = [
   '/refund',
   '/contact',
   '/about',
+  '/pricing',
 ];
 
 export function useRouteProtection() {

@@ -84,6 +84,7 @@ export async function middleware(req: NextRequest) {
     '/refund',
     '/contact',
     '/about',
+    '/pricing',
   ];
 
   // Allow access to API routes and static files
