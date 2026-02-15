@@ -250,10 +250,15 @@ export default function SignUpPage() {
               />
             </div>
           ) : (
-            <div className="rounded-3xl shadow-2xl bg-[#F5F0EB] border-2 border-[#D4C4B8] p-12 flex items-center justify-center min-h-[400px]">
-              <p className="text-[#3D3331]/50 text-center text-lg">
-                Your manifestation note will appear here
-              </p>
+            <div className="rounded-3xl shadow-2xl overflow-hidden bg-white">
+              <Image
+                src="/studio-image31_(2).jpg"
+                alt="Your manifestation note"
+                width={600}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           )}
         </div>
