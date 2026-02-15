@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { RefreshCw, Gift, Calendar, AlertCircle, Clock, CheckCircle, Mail, Heart } from 'lucide-react';
+import { RefreshCw, Heart, AlertCircle, Clock, Mail } from 'lucide-react';
 
 export default function RefundPolicyPage() {
   return (
@@ -17,13 +17,6 @@ export default function RefundPolicyPage() {
           >
             Refund Policy
           </h1>
-          <div
-            className="text-base sm:text-lg font-[family-name:var(--font-poppins)] space-y-2"
-            style={{ color: '#3D3331', opacity: 0.85 }}
-          >
-            <p>Effective Date: February 12, 2026</p>
-            <p>Last Updated: February 12, 2026</p>
-          </div>
         </div>
 
         <div className="space-y-8">
@@ -38,126 +31,64 @@ export default function RefundPolicyPage() {
               className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
               style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
             >
-              At Dear Manifestor, we're committed to delivering a transformative daily manifestation experience. This policy outlines our refund and cancellation terms.
+              At Dear Manifestor, we're committed to delivering a transformative daily manifestation experience. Your satisfaction is our priority.
             </p>
           </section>
 
           <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
-            <div className="flex items-center gap-3 mb-6">
-              <Gift className="w-6 h-6" style={{ color: '#3D3331' }} />
-              <h2
-                className="text-2xl sm:text-3xl font-semibold"
-                style={{ color: '#3D3331' }}
+            <h2
+              className="text-2xl sm:text-3xl font-semibold mb-4"
+              style={{ color: '#3D3331' }}
+            >
+              Our Simple Promise
+            </h2>
+            <div className="bg-gradient-to-r from-[#3D3331]/5 to-[#3D3331]/10 rounded-xl p-6 mb-6">
+              <p
+                className="text-xl font-bold text-center"
+                style={{ color: '#3D3331', lineHeight: '1.6' }}
               >
-                Free Trial Period (Feb 20 - March 1, 2026)
-              </h2>
+                FULL REFUND WHENEVER YOU WANT IT, NO QUESTIONS ASKED.
+              </p>
             </div>
+            <p
+              className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
+              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
+            >
+              We don't want anyone using our service if they're not absolutely loving it. Your manifestation journey should feel aligned and abundant — never obligated.
+            </p>
+          </section>
 
+          <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
+            <h2
+              className="text-2xl sm:text-3xl font-semibold mb-4"
+              style={{ color: '#3D3331' }}
+            >
+              How to Get Your Refund
+            </h2>
             <p
               className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-4"
               style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
             >
-              During your 10-day free trial:
+              Want a refund? Simply:
             </p>
-            <ul
-              className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6"
+            <ol
+              className="space-y-3 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-decimal pl-6"
               style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
             >
-              <li><strong>No charges applied</strong></li>
-              <li><strong>Cancel anytime</strong> with no questions asked</li>
-              <li><strong>Full access</strong> to all features</li>
-              <li><strong>No refund needed</strong> (you haven't been charged yet)</li>
-            </ul>
-          </section>
-
-          <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
-            <div className="flex items-center gap-3 mb-6">
-              <Calendar className="w-6 h-6" style={{ color: '#3D3331' }} />
-              <h2
-                className="text-2xl sm:text-3xl font-semibold"
-                style={{ color: '#3D3331' }}
-              >
-                After First Charge (March 1, 2026 onwards)
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h3
-                  className="text-xl font-semibold mb-3"
-                  style={{ color: '#3D3331' }}
-                >
-                  Cancellation Policy
-                </h3>
-                <p
-                  className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-3"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  You can cancel your subscription <strong>anytime</strong> through:
-                </p>
-                <ul
-                  className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6 mb-4"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  <li>Your account dashboard</li>
-                  <li>Email: mail@dearmanifestor.com</li>
-                </ul>
-
-                <p
-                  className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-3 font-semibold"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  What happens when you cancel:
-                </p>
-                <ul
-                  className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  <li>Your subscription will remain <strong>active until the end of your current billing period</strong></li>
-                  <li>You'll continue receiving daily notes until your paid period ends</li>
-                  <li><strong>No refunds</strong> for partial months (your service continues through the paid period)</li>
-                  <li>Your account and note gallery remain accessible until subscription expires</li>
-                </ul>
-
-                <div className="mt-4 p-4 bg-[#3D3331]/5 rounded-xl">
-                  <p
-                    className="text-base leading-relaxed font-[family-name:var(--font-poppins)] italic"
-                    style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                  >
-                    <strong>Example:</strong> If you cancel on March 15th, you'll continue receiving notes until April 1st (when your next billing cycle would begin).
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h3
-                  className="text-xl font-semibold mb-3"
-                  style={{ color: '#3D3331' }}
-                >
-                  Why No Partial Refunds?
-                </h3>
-                <p
-                  className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-3"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  When you sign up, we immediately:
-                </p>
-                <ol
-                  className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-decimal pl-6"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  <li>Create a personalized AI model trained on your specific manifestation goals</li>
-                  <li>Generate unique, high-frequency content tailored to your journey</li>
-                  <li>Allocate dedicated resources for daily note generation</li>
-                </ol>
-                <p
-                  className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mt-3"
-                  style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-                >
-                  This upfront investment is made at the start of each billing cycle, which is why we cannot offer partial refunds.
-                </p>
-              </div>
-            </div>
+              <li>Cancel via your billing page on the dashboard, OR</li>
+              <li>
+                Contact us at{' '}
+                <Link href="/contact" className="font-semibold hover:opacity-80 transition-opacity">
+                  /contact
+                </Link>
+              </li>
+            </ol>
+            <p
+              className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mt-4"
+              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
+            >
+              That's it. We'll process your full refund promptly.
+            </p>
           </section>
 
           <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
@@ -230,68 +161,6 @@ export default function RefundPolicyPage() {
 
           <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
             <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-6 h-6" style={{ color: '#3D3331' }} />
-              <h2
-                className="text-2xl sm:text-3xl font-semibold"
-                style={{ color: '#3D3331' }}
-              >
-                Exceptional Circumstances
-              </h2>
-            </div>
-
-            <p
-              className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-4"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              We may offer refunds on a case-by-case basis for:
-            </p>
-            <ul
-              className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6 mb-4"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              <li>Technical failures on our end lasting more than 3 consecutive days</li>
-              <li>Unauthorized charges</li>
-              <li>Billing errors</li>
-            </ul>
-
-            <p
-              className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-3 font-semibold"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              To request an exception:
-            </p>
-            <p
-              className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              Email mail@dearmanifestor.com with detailed explanation. We'll review within 48 hours.
-            </p>
-          </section>
-
-          <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
-            <h2
-              className="text-2xl sm:text-3xl font-semibold mb-4"
-              style={{ color: '#3D3331' }}
-            >
-              Payment Disputes
-            </h2>
-            <p
-              className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-4"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              If you have a payment dispute:
-            </p>
-            <ol
-              className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-decimal pl-6"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              <li>Contact us first at mail@dearmanifestor.com (we resolve 99% of issues quickly)</li>
-              <li>If unresolved, you may dispute through your payment provider (Razorpay)</li>
-            </ol>
-          </section>
-
-          <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
-            <div className="flex items-center gap-3 mb-6">
               <Clock className="w-6 h-6" style={{ color: '#3D3331' }} />
               <h2
                 className="text-2xl sm:text-3xl font-semibold"
@@ -302,18 +171,11 @@ export default function RefundPolicyPage() {
             </div>
 
             <p
-              className="text-base leading-relaxed font-[family-name:var(--font-poppins)]"
+              className="text-base leading-relaxed font-[family-name:var(--font-poppins)] mb-3"
               style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
             >
-              Approved refunds are processed within:
+              Approved refunds are processed within 5-7 business days to your original payment method. Depending on your bank, it may take an additional 3-5 days to reflect in your account.
             </p>
-            <ul
-              className="space-y-2 text-base leading-relaxed font-[family-name:var(--font-poppins)] list-disc pl-6 mt-3"
-              style={{ color: '#3D3331', opacity: 0.85, lineHeight: '1.8' }}
-            >
-              <li><strong>5-7 business days</strong> to your original payment method</li>
-              <li>Depending on your bank, it may take an additional 3-5 days to reflect in your account</li>
-            </ul>
           </section>
 
           <section className="bg-white/50 rounded-3xl p-8 sm:p-10 border border-[#D4C4B8]">
@@ -367,7 +229,7 @@ export default function RefundPolicyPage() {
                 className="text-lg italic font-[family-name:var(--font-poppins)]"
                 style={{ color: '#3D3331', opacity: 0.9 }}
               >
-                We're here to support your manifestation journey. If you're ever unhappy with our service, let us know — we'll make it right.
+                We're here to support your manifestation journey.
               </p>
             </div>
           </section>
