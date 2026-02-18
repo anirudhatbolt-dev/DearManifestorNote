@@ -236,7 +236,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Image Display - Right Side */}
-      <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
+      <div className="flex-1 flex items-center justify-center p-6 lg:p-12 pt-20 lg:pt-12">
         <div className="w-full max-w-lg">
           {noteImageUrl ? (
             <div className="rounded-3xl shadow-2xl overflow-hidden bg-white">
