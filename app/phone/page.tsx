@@ -152,11 +152,13 @@ export default function PhonePage() {
               onChange={handlePhoneChange}
               onKeyPress={handleKeyPress}
               placeholder="(555) 000-0000"
-              className="flex-1 px-6 py-4 text-lg rounded-full border-2 outline-none transition-all"
+              className="min-w-0 px-6 py-4 text-lg rounded-full border-2 outline-none transition-all"
               style={{
                 color: "#3D3331",
                 backgroundColor: "#F5F0EB",
                 borderColor: validatePhone(phone) ? "#3D3331" : "#D4C4B8",
+                width: "180px",
+                maxWidth: "180px",
               }}
             />
           </div>
