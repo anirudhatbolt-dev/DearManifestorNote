@@ -46,6 +46,7 @@ export default function GalleryPage() {
           .from("subscriptions")
           .select("id")
           .eq("user_id", user.id)
+          .eq("subscription_status", "active")
           .maybeSingle();
 
         setHasSubscription(!!subscription);
