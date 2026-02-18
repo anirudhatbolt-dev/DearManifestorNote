@@ -127,7 +127,7 @@ export default function PhonePage() {
         </p>
 
         <div className="max-w-md mx-auto">
-          <div className="flex gap-3">
+          <div className="flex gap-3 justify-center">
             <select
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
