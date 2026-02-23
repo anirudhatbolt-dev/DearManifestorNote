@@ -50,7 +50,7 @@ export default function DetailsPage() {
           <textarea
             value={details}
             onChange={handleChange}
-            placeholder='e.g., "My golden retriever Max," "My partner James," "My marketing agency," "That loft with floor-to-ceiling windows," "Moving to LA"...'
+            placeholder=""
             className="w-full px-6 py-4 text-lg rounded-3xl border-2 outline-none transition-all resize-none"
             style={{
               color: "#3D3331",
