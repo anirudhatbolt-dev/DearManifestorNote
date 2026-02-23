@@ -50,7 +50,7 @@ export default function GoalPage() {
           <textarea
             value={goal}
             onChange={handleChange}
-            placeholder=""
+            placeholder='e.g., "my dream apartment in Brooklyn," "a loving relationship with my SP," "my 6-figure business," "financial abundance"...'
             className="w-full px-6 py-4 text-lg rounded-3xl border-2 outline-none transition-all resize-none"
             style={{
               color: "#3D3331",
