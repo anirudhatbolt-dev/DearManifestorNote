@@ -88,7 +88,7 @@ export default function GalleryPage() {
             Welcome, {userName}! 🌟
           </h1>
           <p className="text-lg text-[#3D3331]/70 mb-3">
-            Your next manifestation note will arrive on <span className="font-bold">March 11th</span> at <span className="font-bold">11:11 AM</span>.
+            Your next manifestation note will arrive on <span className="font-bold">March 21th</span> at <span className="font-bold">11:11 AM</span>.
           </p>
           {!hasSubscription && (
             <div className="mt-6 flex flex-col items-center gap-4">
