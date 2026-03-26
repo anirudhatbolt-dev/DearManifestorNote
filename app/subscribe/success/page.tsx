@@ -32,7 +32,7 @@ export default function SubscribeSuccessPage() {
               style={{ color: "#3D3331" }}
             >
               Your first manifestation note will arrive on{" "}
-              <span className="font-semibold">March 21th at 11:11 AM</span> in your timezone.
+              <span className="font-semibold">April 11th at 11:11 AM</span> in your timezone.
             </p>
 
             <p
@@ -59,7 +59,7 @@ export default function SubscribeSuccessPage() {
                 <li className="flex items-start gap-3">
                   <Sparkles className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#3D3331" }} />
                   <span style={{ color: "#3D3331" }}>
-                    Your billing starts March 21th
+                    Your billing starts April 11th
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

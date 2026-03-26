@@ -162,7 +162,7 @@ const verifyResponse = await fetch(
               className="text-xl sm:text-2xl font-semibold mt-8 font-[family-name:var(--font-poppins)]"
               style={{ color: "#3D3331" }}
             >
-              The next wave of manifestors begins March 21th.
+              The next wave of manifestors begins April 11th.
             </p>
           </div>
         </div>
@@ -211,7 +211,7 @@ const verifyResponse = await fetch(
                 className="text-xl sm:text-2xl font-semibold mb-3"
                 style={{ color: "#3D3331" }}
               >
-                Your first note arrives March 21th
+                Your first note arrives April 11th
               </h3>
               <p
                 className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
