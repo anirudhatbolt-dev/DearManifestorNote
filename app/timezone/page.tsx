@@ -39,7 +39,7 @@ export default function TimezonePage() {
       timezone: timezone,
       utc_offset: utcOffset
     });
-    router.push("/phone");
+    router.push("/auth/signup");
   };
 
   const displayTimezone = timezone.replace(/_/g, ' ');
