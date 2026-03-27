@@ -36,7 +36,7 @@ export default function NotePage() {
   }, [router]);
 
   const handleCreateAnother = () => {
-    router.push("/try/craftingAgain");
+    router.push("/email");
   };
 
   if (!data.imageUrl) {
