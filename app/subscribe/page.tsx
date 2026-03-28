@@ -128,151 +128,73 @@ const verifyResponse = await fetch(
       </div>
     );
   }
+  
+return (
+<div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#E5DDD5" }}>
+  <div className="max-w-xl mx-auto text-center">
 
-  return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#E5DDD5" }}>
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1
-            className="text-5xl sm:text-6xl md:text-7xl mb-8"
-            style={{ color: "#3D3331", fontWeight: 500 }}
-          >
-            Become a Daily Manifestor
-          </h1>
-          <div className="space-y-6 max-w-2xl mx-auto">
-            <p
-              className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331" }}
-            >
-              Right now, thousands are waking up to their manifestation note at 11:11
-            </p>
-            <p
-              className="text-lg sm:text-xl leading-relaxed font-medium font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331" }}
-            >
-              You've felt what one note can do.
-            </p>
-            <p
-              className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331" }}
-            >
-              Imagine that clarity. Every single morning. At the universe's most powerful moment.
-            </p>
-            <p
-              className="text-xl sm:text-2xl font-semibold mt-8 font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331" }}
-            >
-              The next wave of manifestors begins April 11th.
-            </p>
-          </div>
-        </div>
+    <h1
+      className="text-5xl sm:text-6xl md:text-7xl mb-8"
+      style={{ color: "#3D3331", fontWeight: 500 }}
+    >
+      That feeling you just had?
+    </h1>
 
-        <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 mb-12 border-2 border-[#D4C4B8]">
-          <h2
-            className="text-3xl sm:text-4xl font-semibold mb-10 text-center"
-            style={{ color: "#3D3331" }}
-          >
-            What Daily Manifestors Get
-          </h2>
+    <p
+      className="text-xl sm:text-2xl font-semibold font-[family-name:var(--font-poppins)] mb-10"
+      style={{ color: "#3D3331" }}
+    >
+      That's your 4D.
+    </p>
 
-          <div className="space-y-8 mb-10">
-            <div className="text-center pb-6 border-b-2 border-[#D4C4B8]">
-              <h3
-                className="text-xl sm:text-2xl font-semibold mb-3"
-                style={{ color: "#3D3331" }}
-              >
-                Your personalized note at 11:11 AM
-              </h3>
-              <p
-                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
-                style={{ color: "#3D3331", opacity: 0.8 }}
-              >
-                Every single day. Aligned to YOUR goals. YOUR journey. YOUR reality.
-              </p>
-            </div>
+    <p
+      className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)] mb-3"
+      style={{ color: "#3D3331", opacity: 0.85 }}
+    >
+      Imagine starting every morning there. A new note at 11:11 —
+    </p>
 
-            <div className="text-center pb-6 border-b-2 border-[#D4C4B8]">
-              <h3
-                className="text-xl sm:text-2xl font-semibold mb-3"
-                style={{ color: "#3D3331" }}
-              >
-                You become part of the 11:11 ritual
-              </h3>
-              <p
-                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
-                style={{ color: "#3D3331", opacity: 0.8 }}
-              >
-                Join thousands who start their mornings with the universe's most powerful reminder.
-              </p>
-            </div>
+    <p
+      className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)] mb-10"
+      style={{ color: "#3D3331", opacity: 0.85 }}
+    >
+      written for you, about exactly what you're calling in.
+    </p>
 
-            <div className="text-center pb-6 border-b-2 border-[#D4C4B8]">
-              <h3
-                className="text-xl sm:text-2xl font-semibold mb-3"
-                style={{ color: "#3D3331" }}
-              >
-                Your first note arrives April 11th
-              </h3>
-              <p
-                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
-                style={{ color: "#3D3331", opacity: 0.8 }}
-              >
-                11:11 AM sharp. The universe doesn't wait for anyone.
-              </p>
-            </div>
+    <p
+      className="text-xl sm:text-2xl font-semibold font-[family-name:var(--font-poppins)] mb-16"
+      style={{ color: "#3D3331" }}
+    >
+      Every single day. Already yours.
+    </p>
 
-            <div className="text-center pt-2">
-              <div className="inline-flex items-baseline gap-2 mb-3">
-                <span
-                  className="text-6xl sm:text-7xl font-bold"
-                  style={{ color: "#3D3331" }}
-                >
-                  $11.11
-                </span>
-                <span
-                  className="text-2xl font-medium"
-                  style={{ color: "#3D3331" }}
-                >
-                  /month
-                </span>
-              </div>
-              <p
-                className="text-base sm:text-lg font-[family-name:var(--font-poppins)]"
-                style={{ color: "#3D3331", opacity: 0.8 }}
-              >
-                The universe's number. Your daily manifestation ritual. Cancel anytime.
-              </p>
-            </div>
-          </div>
+    <p
+      className="text-base font-[family-name:var(--font-poppins)] mb-4"
+      style={{ color: "#3D3331", opacity: 0.6 }}
+    >
+      $11.11/month · billing starts April 11th · cancel anytime
+    </p>
 
-          <div className="text-center">
-            <button
-              onClick={handleSubscribe}
-              disabled={loading}
-              className="inline-flex items-center gap-3 rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg font-[family-name:var(--font-poppins)]"
-              style={{ backgroundColor: "#3D3331" }}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  Processing...
-                </>
-              ) : (
-                <>
-                  <Sparkles className="hidden sm:inline w-5 h-5" />
-                  Become a Daily Manifestor
-                </>
-              )}
-            </button>
-            <p
-              className="text-sm mt-4 italic font-[family-name:var(--font-poppins)]"
-              style={{ color: "#3D3331", opacity: 0.6 }}
-            >
-              (We've already personalized 2 notes for you—now let us remind you every morning what you're calling in.)
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    <button
+      onClick={handleSubscribe}
+      disabled={loading}
+      className="w-full rounded-full px-10 py-5 text-white font-medium text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg font-[family-name:var(--font-poppins)]"
+      style={{ backgroundColor: "#3D3331" }}
+    >
+      {loading ? (
+        <span className="flex items-center justify-center gap-3">
+          <Loader2 className="w-5 h-5 animate-spin" />
+          Processing...
+        </span>
+      ) : (
+        <>
+          <Sparkles className="hidden sm:inline w-5 h-5 mr-2" />
+          Yes — lock in my spot
+        </>
+      )}
+    </button>
+
+  </div>
+</div>
+);
 }
