@@ -96,7 +96,7 @@ export default function GalleryPage() {
                 Want such notes to arrive daily at 11:11am?
               </p>
               <Link
-                href="/subscribe"
+                href="/start"
                 className="rounded-full px-8 py-3 text-white font-medium text-base flex items-center gap-2 hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: '#3D3331' }}
               >

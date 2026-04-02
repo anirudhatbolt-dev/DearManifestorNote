@@ -76,8 +76,8 @@ export async function middleware(req: NextRequest) {
   const allowedAuthenticatedRoutes = [
     '/',
     '/setup',
-    '/subscribe',
-    '/subscribe/success',
+    '/start',
+    '/start/success',
     '/gallery',
     '/terms',
     '/privacy',

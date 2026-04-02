@@ -7,8 +7,8 @@ import { supabase } from '@/lib/supabase-client';
 const allowedAuthenticatedRoutes = [
   '/',
   '/setup',
-  '/subscribe',
-  '/subscribe/success',
+  '/start',
+  '/start/success',
   '/gallery',
   '/terms',
   '/privacy',

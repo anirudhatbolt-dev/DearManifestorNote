@@ -31,7 +31,7 @@ export default function SubscribePage() {
 
   const handleSubscribe = async () => {
     if (!user) {
-      router.push("/auth/signup?redirect=/subscribe");
+      router.push("/auth/signup?redirect=/start");
       return;
     }
 
