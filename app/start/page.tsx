@@ -144,35 +144,37 @@ return (
       className="text-xl sm:text-2xl font-semibold font-[family-name:var(--font-poppins)] mb-10"
       style={{ color: "#3D3331" }}
     >
-      That's your 4D.
+      {/* That's your 4D. */}
+      
+That's your 4D. That IS your reality.
     </p>
 
     <p
       className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)] mb-3"
       style={{ color: "#3D3331", opacity: 0.85 }}
     >
-      Imagine starting every morning there. A new note at 11:11 —
+      Your note is your reality. That one was on us
     </p>
 
     <p
       className="text-lg sm:text-xl leading-relaxed font-[family-name:var(--font-poppins)] mb-10"
       style={{ color: "#3D3331", opacity: 0.85 }}
     >
-      written for you, about exactly what you're calling in.
+      How would it feel waking up to a new note at 11:11 — written for you, about exactly what you're calling in?
     </p>
 
     <p
       className="text-xl sm:text-2xl font-semibold font-[family-name:var(--font-poppins)] mb-16"
       style={{ color: "#3D3331" }}
     >
-      Every single day. Already yours.
+      Every single day. Already yours at 11:11 AM
     </p>
 
     <p
       className="text-base font-[family-name:var(--font-poppins)] mb-4"
       style={{ color: "#3D3331", opacity: 0.6 }}
     >
-      $11.11/month · billing starts April 11th · cancel anytime
+      Secured payments · billing starts April 11th · cancel anytime 
     </p>
 
     <button
@@ -189,7 +191,7 @@ return (
       ) : (
         <>
           <Sparkles className="hidden sm:inline w-5 h-5 mr-2" />
-          Yes — lock in my spot
+          Yes — $11.11/month · lock in my spot
         </>
       )}
     </button>
